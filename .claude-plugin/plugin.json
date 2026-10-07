@@ -1,0 +1,13 @@
+{
+  "name": "plug",
+  "displayName": "Plug",
+  "description": "Plug tells you what to create next, grounded in what's working in your paid social on Meta and TikTok. Turn Plug's briefs into finished creatives in your own tools.",
+  "author": {
+    "name": "Plug",
+    "url": "https://www.plug.inc"
+  },
+  "homepage": "https://docs.plug.inc/docs/mcp",
+  "repository": "https://github.com/pluuug-net/plug-for-agents",
+  "license": "MIT",
+  "keywords": ["paid social", "meta ads", "tiktok ads", "creatives", "creative briefs"]
+}
