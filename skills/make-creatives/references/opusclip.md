@@ -8,8 +8,9 @@
 
 ## Submitting
 
-- Links: YouTube or Vimeo, unlisted is fine. OpusClip refuses Google Drive links, direct
-  download links included.
+- Links: YouTube, Vimeo, Zoom, Facebook, LinkedIn and a few other video sites; unlisted is
+  fine. OpusClip refuses Google Drive links, direct download links included, and Dropbox is
+  not on its list.
 - A file instead of a link: get an upload link from OpusClip, upload the file to it, and
   submit with the upload id. Cut a long file to the part you need first, which saves upload
   time and credits. The file must have a sound track; OpusClip refuses a video without one.
