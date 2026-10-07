@@ -3,9 +3,9 @@
 # served at https://mcp.plug.inc/skill.md once deployed. Never edit the copy in this repo.
 name: Sync the Plug skill
 
+# Manual until pluuug-net/plug-ai#683 is in prod; until then prod still serves the old skill.
+# Then add back: schedule: - cron: "17 4 * * *"
 on:
-  schedule:
-    - cron: "17 4 * * *"
   workflow_dispatch:
 
 permissions:

@@ -96,8 +96,9 @@ read-only except the brand tools (rule 2a). No tool ever changes an ad account.
 
 ## Recipe: make creatives from a brief
 
-Use the `make-creatives` skill. It covers statics from a brief, short clips from a long video
-and short videos from a video brief, finished in the team's own tools.
+Use the `make-creatives` skill, which comes with the Plug plugin
+(https://github.com/pluuug-net/plug-for-agents): statics from a brief, short clips from a long
+video and short videos from a video brief, finished in the team's own tools.
 
 ## Recipe: update the brand from the brand's own documentation
 
