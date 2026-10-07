@@ -2,7 +2,7 @@
 
 ## Cost
 
-- About 1 credit per minute of source video. Check the remaining credits first with the usage
+- At least 10 credits per video, then about 1 credit per minute of source video. Check the remaining credits first with the usage
   tool, and say the cost before submitting.
 - For a long video, offer to clip only part of it (a start and end time) to use fewer credits.
 
@@ -13,7 +13,7 @@
   not on its list.
 - A file instead of a link: get an upload link from OpusClip, upload the file to it, and
   submit with the upload id. Cut a long file to the part you need first, which saves upload
-  time and credits. The file must have a sound track; OpusClip refuses a video without one.
+  time, and credits above 10 minutes. The file must have a sound track; OpusClip refuses a video without one.
 - Use the brand's template from the brand templates list. If only OpusClip's presets exist,
   say so before using one.
 - Submit in clipping mode: the video link, the clipping instruction as the custom prompt, the
