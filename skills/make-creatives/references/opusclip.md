@@ -8,13 +8,8 @@
 
 ## Submitting
 
-- Links: YouTube, Vimeo, Zoom, Facebook, LinkedIn and a few other video sites; unlisted is
-  fine. OpusClip refuses Google Drive links, direct download links included, and Dropbox is
-  not on its list.
-- A file instead of a link: get an upload link from OpusClip, upload the file to it, and
-  submit with the upload id. This needs network access to storage.googleapis.com, which
-  Claude in the browser does not have by default. If the upload is blocked, ask for a link
-  instead. The file must have a sound track.
+- Send a YouTube or Vimeo link; unlisted is fine. OpusClip refuses Google Drive links. If the
+  person has only a file, ask them to put it on YouTube or Vimeo as unlisted.
 - Use the brand's template from the brand templates list, and call it by its name. The list's
   caption style can be out of date. If only OpusClip's presets exist, say so before using one.
 - Submit in clipping mode: the video link, the clipping instruction as the custom prompt, the
