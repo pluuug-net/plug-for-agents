@@ -8,8 +8,11 @@
 
 ## Submitting
 
-- Send a YouTube or Vimeo link; unlisted is fine. OpusClip refuses Google Drive links. If the
-  person has only a file, ask them to put it on YouTube or Vimeo as unlisted.
+- A link: YouTube, Vimeo or another site OpusClip accepts; unlisted is fine. If OpusClip
+  refuses a link, its message lists the sites it takes. It refuses Google Drive links.
+- A file: the person uploads it in OpusClip themselves, with the clipping instruction, the
+  template and the clip length you give them. Then find that project in the project list and
+  carry on from reviewing.
 - Use the brand's template from the brand templates list, and call it by its name. The list's
   caption style can be out of date. If only OpusClip's presets exist, say so before using one.
 - Submit in clipping mode: the video link, the clipping instruction as the custom prompt, the
