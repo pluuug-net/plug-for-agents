@@ -9,7 +9,10 @@
 ## Submitting
 
 - Links: YouTube or Vimeo, unlisted is fine. OpusClip refuses Google Drive links, direct
-  download links included. A video in Drive goes to YouTube or Vimeo as unlisted first.
+  download links included.
+- A file instead of a link: get an upload link from OpusClip, upload the file to it, and
+  submit with the upload id. Cut a long file to the part you need first, which saves upload
+  time and credits. The file must have a sound track; OpusClip refuses a video without one.
 - Use the brand's template from the brand templates list. If only OpusClip's presets exist,
   say so before using one.
 - Submit in clipping mode: the video link, the clipping instruction as the custom prompt, the
