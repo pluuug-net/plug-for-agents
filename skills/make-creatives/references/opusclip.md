@@ -2,8 +2,8 @@
 
 ## Cost
 
-- At least 10 credits per video, then about 1 credit per minute of source video. Check the remaining credits first with the usage
-  tool, and say the cost before submitting.
+- At least 10 credits per video, then about 1 credit per minute of source video. Check the
+  remaining credits first with the usage tool, and say the cost before submitting.
 - For a long video, offer to clip only part of it (a start and end time) to use fewer credits.
 
 ## Submitting
@@ -12,10 +12,11 @@
   fine. OpusClip refuses Google Drive links, direct download links included, and Dropbox is
   not on its list.
 - A file instead of a link: get an upload link from OpusClip, upload the file to it, and
-  submit with the upload id. Cut a long file to the part you need first, which saves upload
-  time, and credits above 10 minutes. The file must have a sound track; OpusClip refuses a video without one.
-- Use the brand's template from the brand templates list. If only OpusClip's presets exist,
-  say so before using one.
+  submit with the upload id. This needs network access to storage.googleapis.com, which
+  Claude in the browser does not have by default. If the upload is blocked, ask for a link
+  instead. The file must have a sound track.
+- Use the brand's template from the brand templates list, and call it by its name. The list's
+  caption style can be out of date. If only OpusClip's presets exist, say so before using one.
 - Submit in clipping mode: the video link, the clipping instruction as the custom prompt, the
   template, portrait, clips of 15 to 30 seconds, captions on.
 - Do not use the modes that keep the whole video or skip curation when the person wants
