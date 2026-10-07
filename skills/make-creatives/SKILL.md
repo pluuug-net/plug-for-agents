@@ -56,9 +56,10 @@ own tools make it. The person approves every step.
    `plug_list_creative_approaches` with `media_type: video`. Say in one sentence what works,
    and what does not, in the account's videos.
 2. Ask for the video link. Confirm the brand may use it and everyone in it agreed.
-3. In the clipping tool: pick the brand's template, state the cost, and on a yes submit the
-   video with what works as the clipping instruction, portrait, 15 to 30 second clips,
-   captions on. It renders in the background.
+3. Write the clipping instruction: what works, put as moments this video can contain (a stage
+   talk has no product demo, but it has stories and proof), adding nothing Plug did not find.
+   Show the instruction, the brand's template and the cost, and on a yes submit: portrait,
+   15 to 30 second clips, captions on. It renders in the background.
 4. When the clips are ready, show the top three and say for each why it matches what works.
 5. The person approves, and you export each approved clip in HD.
 

@@ -10,8 +10,8 @@
 
 - Use the brand's template from the brand templates list. If only OpusClip's presets exist,
   say so before using one.
-- Submit in clipping mode: the video link, the clipping instruction (what works in the
-  account), the template, portrait, clips of 15 to 30 seconds, captions on.
+- Submit in clipping mode: the video link, the clipping instruction as the custom prompt, the
+  template, portrait, clips of 15 to 30 seconds, captions on.
 - Do not use the modes that keep the whole video or skip curation when the person wants
   several clips: both return one full-length video.
 
