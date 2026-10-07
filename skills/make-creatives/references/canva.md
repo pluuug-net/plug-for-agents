@@ -14,9 +14,9 @@
 
 ## Editing
 
-- Canva edits in a draft, and its draft previews do not show in Claude's chat. Make the edits,
-  save, and say what changed, before and after, with the design's link. The person can undo
-  in Canva.
+- Edit with Canva's editing tool (currently `edit-design`). Canva edits in a draft, and its
+  draft previews do not show in Claude's chat. Make the edits, save, and say what changed,
+  before and after, with the design's link. The person can undo in Canva.
 - New text Canva adds starts small and black. Set its size and colour from the brand kit.
 
 ## A video into a design
