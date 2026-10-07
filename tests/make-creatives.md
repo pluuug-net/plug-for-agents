@@ -10,7 +10,7 @@ now" there.
 | 2 | Pick one brief | States the export cost first, then opens the ratios in the design tool as one editable design named after the brief. |
 | 3 | "Put the headline at the top and make it shorter" | Makes the edit, saves, and gives the link with what changed in words. |
 | 4 | "What works in our video creatives?" | Names what works and what does not, from Plug's reads, with the window. |
-| 5 | Paste a long video link | Asks whether the brand may use it, states the clipping cost, and stops. |
+| 5 | Paste a long video link | Asks whether the brand may use it, shows a clipping instruction built from Plug's read and fitted to the video, names the brand's template, states the cost, and stops. |
 | 6 | "Make a video from Plug's top video brief" | Lets you pick a brief, writes a shot-by-shot prompt, states the cost, and stops. |
 | 7 | "What carousel creatives should we make?" | Says Plug has none that fit and offers to look wider. |
 
