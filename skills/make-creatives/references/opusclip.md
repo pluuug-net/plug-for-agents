@@ -13,6 +13,10 @@
 - A file: the person uploads it in OpusClip themselves, with the clipping instruction, the
   template and the clip length you give them. Then find that project in the project list and
   carry on from reviewing.
+- A file on a computer you can run commands on: get an upload link from OpusClip, send the
+  file to it with a command, and submit with the upload id. The video moves as a file and
+  never goes into the conversation. It needs a sound track, and access to OpusClip's storage
+  (Claude in the browser has none).
 - Use the brand's template from the brand templates list, and call it by its name. The list's
   caption style can be out of date. If only OpusClip's presets exist, say so before using one.
 - Submit in clipping mode: the video link, the clipping instruction as the custom prompt, the
