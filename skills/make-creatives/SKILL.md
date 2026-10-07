@@ -55,8 +55,9 @@ own tools make it. The person approves every step.
 1. `plug_list_winning_tags` and `plug_list_losing_tags` with `metric: hook_rate`, and
    `plug_list_creative_approaches` with `media_type: video`. Say in one sentence what works,
    and what does not, in the account's videos.
-2. Ask for the video link if the person has not given it. Confirm the brand may use it and
-   everyone in it agreed.
+2. Ask for the video link if the person has not given it, and what the video is (a talk, a
+   testimonial, a vlog) if you cannot tell. Confirm the brand may use it and everyone in it
+   agreed.
 3. Write the clipping instruction: what works, put as moments this video can contain (a stage
    talk has no product demo, but it has stories and proof), adding nothing Plug did not find.
    Show the instruction, the brand's template and the cost, and on a yes submit: portrait,

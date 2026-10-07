@@ -8,6 +8,8 @@
 
 ## Submitting
 
+- Links: YouTube or Vimeo, unlisted is fine. OpusClip refuses Google Drive links, direct
+  download links included. A video in Drive goes to YouTube or Vimeo as unlisted first.
 - Use the brand's template from the brand templates list. If only OpusClip's presets exist,
   say so before using one.
 - Submit in clipping mode: the video link, the clipping instruction as the custom prompt, the
