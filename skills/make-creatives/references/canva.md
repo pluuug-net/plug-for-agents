@@ -28,8 +28,9 @@
 2. Create an empty 9:16 design named after the brief with Canva's design creation tool
    (currently `create-design`, format "Instagram Story"). Never use the design suggestion
    tool (`generate-design`): it returns layouts with text and stock elements to choose from.
-3. Open the design for editing, remove anything on the page, place the video so it fills the
-   page, and save.
+3. Open the design for editing. Even an empty design arrives with template text and pictures,
+   so delete every element on the page, then place the video at the top left at 1080 by 1920
+   so it fills the page, and save.
 4. Give the design's link. Add no text, logo or end card unless the person asks.
 
 ## Links Canva can fetch
