@@ -35,8 +35,8 @@ own tools make it. The person approves every step.
 3. **Show briefs as Plug names them.** One table of every brief that fits: its exact title, the
    format, the date and its Plug link. Leave out briefs marked disliked or expired, or whose
    approach is retired. Do not rename a brief or invent why Plug suggests it.
-4. **Speak in the person's words.** Never pass on Plug's internal labels, statuses or codes:
-   review states, funnel codes, confidence labels. Raise a problem only when the person has to
+4. **Speak in the person's words.** Never pass on Plug's internal labels, statuses or codes,
+   even reworded: review states, funnel codes, confidence labels. Raise a problem only when the person has to
    act on it, once and plainly. Fix small faults yourself and say what you fixed.
 5. **Ask before spending, and spend once.** Say what a step costs and wait for a yes. Start a
    paid run once and follow it by its id; if a call fails, look for the run before trying
