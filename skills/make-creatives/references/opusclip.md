@@ -1,9 +1,13 @@
 # OpusClip (clipping tool)
 
+Tools: `opusclip_get_usage`, `opusclip_list_brand_templates`, `opusclip_submit_project`,
+`opusclip_list_clips`, `opusclip_preview_clips`, `opusclip_export_clip`.
+
 ## Cost
 
 - At least 10 credits per video, then about 1 credit per minute of source video. Check the
-  remaining credits first with the usage tool, and say the cost before submitting.
+  remaining credits first with the usage tool, and say the cost before submitting. Check it
+  again once the clips are ready, and say what the run used.
 - For a long video, offer to clip only part of it (a start and end time) to use fewer credits.
 
 ## Submitting

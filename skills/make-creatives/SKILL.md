@@ -18,6 +18,8 @@ own tools make it. The person approves every step.
   - video model: Seedance 2.5 on Replicate, `references/replicate-seedance.md`
 
   If the team uses another tool for a job, follow the same steps with it.
+- **Load a use case's tools in one search**: the Plug tools named in its steps, and the tools
+  named in that tool's file.
 
 ## Rules
 
@@ -26,19 +28,24 @@ own tools make it. The person approves every step.
    older briefs, another format, a longer window. If still nothing fits, offer an idea from the
    brand kit, and say it is not from Plug's data.
 2. **The brand is a hard rule.** Call `plug_get_brand` before making anything, not before
-   choosing. Its colours, fonts, logo, claims, CTAs, people policy, and do's and don'ts all
-   apply. Text and logos go on in the design tool, never inside a generated video: video
-   models garble letters and logos.
+   choosing. Its colours, fonts, logo, claims, CTAs, people policy, and do's and don'ts apply
+   to everything you make and every edit, so check the result against them. Break one only
+   when the person asks. Text and logos go on in the design tool, never inside a generated
+   video: video models garble letters and logos.
 3. **Show briefs as Plug names them.** One table of every brief that fits: its exact title, the
    format, the date and its Plug link. Leave out briefs marked disliked or expired, or whose
    approach is retired. Do not rename a brief or invent why Plug suggests it.
-4. **Ask before spending.** Say what a step costs and wait for a yes. Each tool's file says how
-   it charges.
-5. **One step at a time.** Show the result, then wait for the person to choose or say what to
-   change.
-6. **Links expire.** Plug's files and generated videos last about an hour, so move each one on
+4. **Speak in the person's words.** Never pass on Plug's internal labels, statuses or codes:
+   review states, funnel codes, confidence labels. Raise a problem only when the person has to
+   act on it, once and plainly. Fix small faults yourself and say what you fixed.
+5. **Ask before spending, and spend once.** Say what a step costs and wait for a yes. Start a
+   paid run once and follow it by its id; if a call fails, look for the run before trying
+   again. Afterwards say what it cost, from the tool. Each tool's file says how it charges.
+6. **One step at a time.** End each step with a result the person can open or play in one
+   click, then wait for them to choose or say what to change.
+7. **Links expire.** Plug's files and generated videos last about an hour, so move each one on
    in the same step it is made.
-7. **This ends at a finished creative.** Saving it and launching it are the person's own steps.
+8. **This ends at a finished creative.** Saving it and launching it are the person's own steps.
 
 ## 1. A static from a brief
 
@@ -61,8 +68,9 @@ own tools make it. The person approves every step.
 2. Read what works in videos for that goal: `plug_list_winning_tags`, `plug_list_losing_tags`
    and `plug_list_creative_approaches` with `media_type: video`, in the comparison group for
    that goal, on the metric it is judged by (attention: hook rate; visits: CTR; purchases: CPA
-   on the purchase event). Say in a few lines what works and what does not, leading with what
-   Plug is most sure of, without Plug's confidence labels.
+   on the purchase event). If the read is thin, include paused creatives, but never leave the
+   goal's group; if it is still thin, say Plug has no clear read for this goal yet. Say in a
+   few lines what works and what does not, leading with what Plug is most sure of.
 3. Understand the video first: what kind it is, who speaks and about what, from what the
    person says and the video's title. Write the clipping instruction as what works, put as
    moments this video can contain, adding nothing Plug did not find. Show the instruction, the
@@ -84,8 +92,9 @@ own tools make it. The person approves every step.
    once that the model garbles letters. Include people only if the brand's people policy
    allows them, and a voice only if the brand allows one; otherwise music and sound only.
 4. State the cost, and on a yes generate it: 9:16, as long as the frame timings add up to.
-5. Show the video and name any problem (garbled text, extra people, a warped logo). Make a new
-   take only after a yes, because it costs again.
+5. Give the link where the person can play it, and ask them to look for garbled text, extra
+   people or a warped logo: you cannot watch it. Make a new take only after a yes, because it
+   costs again.
 6. Offer to finish it in the design tool, and recommend it when the brief has on-screen text:
    a 9:16 design with the brand kit and the headline in the brand font. Save, give the link and
    say what is on it, and export an MP4 after a yes. Add no end card unless the person asks.
