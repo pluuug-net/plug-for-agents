@@ -30,24 +30,35 @@ own tools make it. The person approves every step.
 2. **The brand is a hard rule.** Call `plug_get_brand` before making anything, not before
    choosing. Its colours, fonts, logo, claims, CTAs, people policy, and do's and don'ts apply
    to everything you make and every edit, so check the result against them. Break one only
-   when the person asks. Text and logos go on in the design tool, never inside a generated
-   video: video models garble letters and logos.
-3. **Show briefs as Plug names them.** One table of every brief that fits: its exact title, the
-   format, the date and its Plug link. Leave out briefs marked disliked or expired, or whose
-   approach is retired. Do not rename a brief or invent why Plug suggests it.
-4. **Speak in the person's words.** Never pass on Plug's internal labels, statuses or codes,
+   when the person asks. Text goes on in the design tool, never inside a generated video:
+   video models garble letters. The logo may appear in a generated video only on the product,
+   such as a phone screen or a car, and only from the brand kit's logo image.
+3. **Show briefs in Plug's order, as Plug names them.** One table of every brief that fits, in
+   the order Plug returns them: its exact title, the format, what it is for in plain words
+   (purchases, site visits, attention), the date and its Plug link. Leave out briefs marked
+   disliked or expired, or whose approach is retired. When the person asks for one brief, take
+   the first that fits the format and goal they named. Do not rename a brief, show Plug's
+   ranking, or invent why Plug suggests it.
+4. **Name what you make after the brief.** Every design and file takes the brief's exact title,
+   with the ratio added when there is more than one (`<brief title> | 9:16`). Clips made without
+   a brief keep the clipping tool's titles.
+5. **Speak in the person's words.** Never pass on Plug's internal labels, statuses or codes,
    even reworded: review states, funnel codes, confidence labels. Raise a problem only when the person has to
    act on it, once and plainly. Fix small faults yourself and say what you fixed. Plug's
    briefs and files are ready to use; Plug's notes about its own checks are for Plug, not the
    person.
-5. **Ask before spending, and spend once.** Say what a step costs and wait for a yes. Start a
+6. **Ask with buttons.** When the person has to choose (a brief, a goal, a yes to a cost), use
+   the app's question panel if it has one, with each option as a button.
+7. **Ask before spending, and spend once.** Say what a step costs and wait for a yes. Start a
    paid run once and follow it by its id; if a call fails, look for the run before trying
    again. Afterwards say what it cost, from the tool. Each tool's file says how it charges.
-6. **One step at a time.** End each step with a result the person can open or play in one
+8. **Fetch once.** Reuse what a tool already returned in this chat. Call it again only for
+   something new, or for fresh links once the old ones expire.
+9. **One step at a time.** End each step with a result the person can open or play in one
    click, then wait for them to choose or say what to change.
-7. **Links expire.** Plug's files and generated videos last about an hour, so move each one on
+10. **Links expire.** Plug's files and generated videos last about an hour, so move each one on
    in the same step it is made.
-8. **This ends at a finished creative.** Saving it and launching it are the person's own steps.
+11. **This ends at a finished creative.** Saving it and launching it are the person's own steps.
 
 ## 1. A static from a brief
 
@@ -79,27 +90,37 @@ own tools make it. The person approves every step.
    brand's template and the cost, and on a yes submit: portrait, 15 to 30 second clips,
    captions on. Say when to check back: rendering takes about 10 minutes.
 4. When the clips are ready: the link to all clips in the clipping tool, then one table of
-   every clip, best fit first: title, length, and a short verdict against what works and what
-   the clips are for. Show the best fits as previews.
+   every clip, best fit first: title, length, a short verdict against what works and what the
+   clips are for, and the clip's own link to play it. Show previews only when the person asks.
 5. Export the clips the person picks in HD. End with the download links (they expire) and the
    clipping tool's link, where the clips stay.
 
 ## 3. A short video from a video brief
 
 1. `plug_list_creative_briefs`: show the video briefs as rule 3 says. The person picks one.
-2. `plug_get_creative_brief`: the storyboard frames (timing, on-screen text, description),
-   the CTA, and the mood board in `generated_assets`.
-3. Write one prompt, shot by shot, from the frame timings, in the mood board's look. Add "no
-   on-screen text, captions or letters" unless the person wants text in the video; then warn
-   once that the model garbles letters. Include people only if the brand's people policy
-   allows them, and a voice only if the brand allows one; otherwise music and sound only.
-4. State the cost, and on a yes generate it: 9:16, as long as the frame timings add up to.
-5. Give the link where the person can play it, and ask them to look for garbled text, extra
-   people or a warped logo: you cannot watch it. Make a new take only after a yes, because it
-   costs again.
-6. Offer to finish it in the design tool, and recommend it when the brief has on-screen text:
-   a 9:16 design with the brand kit and the headline in the brand font. Save, give the link and
-   say what is on it, and export an MP4 after a yes. Add no end card unless the person asks.
+2. `plug_get_creative_brief`: the storyboard frames (timing, description, on-screen text and
+   audio), the CTA, and the storyboard image in `generated_assets`.
+3. Write the video prompt from the storyboard without rewriting it:
+   - the storyboard image as the first reference image, and each frame in order with its
+     timing and description, word for word. Say that the image shows the frames side by side,
+     each one a full-screen shot in turn, and that the words on and under the frames are notes,
+     not part of the picture;
+   - the brand kit's logo image as the second reference image, shown only where a frame puts
+     it on the product;
+   - sound as the storyboard says: each spoken line in double quotes, and music and sound as
+     described. If the storyboard has no audio, the video has no sound;
+   - "no on-screen text, captions or letters": the frames' on-screen text is the person's to
+     add in the design tool.
+
+   Include people only if the brand's people policy allows them.
+4. Show the prompt and the cost, and on a yes generate it: 9:16, as long as the frame timings
+   add up to.
+5. Give the link where the person can play it, and ask them to look for letters, extra people
+   or a warped logo: you cannot watch it. Make a new take only after a yes, because it costs
+   again.
+6. Put the video into the design tool: one 9:16 design named after the brief, the video filling
+   the page and nothing else. Save, give the link, and list the storyboard's on-screen lines
+   with their timings for the person to add.
 
 ## End with
 

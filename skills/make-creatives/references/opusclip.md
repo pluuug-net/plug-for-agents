@@ -32,7 +32,8 @@ Tools: `opusclip_get_usage`, `opusclip_list_brand_templates`, `opusclip_submit_p
 
 - An empty clip list while the project is still in progress means the clips are not ready.
   Check again rather than concluding there are none.
-- Show the clips with the preview tool, so the person can watch them in the conversation.
+- Each clip's play link is its `preview_url` from the clip list. It lasts about a day.
+- Use the preview tool only when the person asks to watch clips in the conversation.
 
 ## Exporting
 
