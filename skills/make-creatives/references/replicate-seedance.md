@@ -11,8 +11,8 @@ Run Replicate's official model `bytedance/seedance-2.5` (`create_models_predicti
 
 - `prompt`: the prompt from SKILL.md step 3, naming the storyboard image as [Image1] and the
   logo as [Image2]. Spoken lines go in double quotes: the model speaks them.
-- `reference_images`: the storyboard image link, then the brand kit's logo image link, in
-  that order (reference images cannot be combined with a first or last frame image)
+- `reference_images`: the storyboard image link, then the brand kit's logo image link (the
+  reference image of kind `logo`, else the first one in the logo slot), in that order (reference images cannot be combined with a first or last frame image)
 - `duration`: the sum of the frame timings, 4 to 30 seconds
 - `resolution: 720p`
 - `aspect_ratio: 9:16`

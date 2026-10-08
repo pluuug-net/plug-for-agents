@@ -102,7 +102,9 @@ own tools make it. The person approves every step.
    audio), the CTA, and the storyboard image in `generated_assets`.
 3. Write the video prompt from the storyboard without rewriting it:
    - the storyboard image as the first reference image, and each frame in order with its
-     timing and description, word for word;
+     timing and description, word for word. Say that the image shows the frames side by side,
+     each one a full-screen shot in turn, and that the words on and under the frames are notes,
+     not part of the picture;
    - the brand kit's logo image as the second reference image, shown only where a frame puts
      it on the product;
    - sound as the storyboard says: each spoken line in double quotes, and music and sound as
