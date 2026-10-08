@@ -22,6 +22,11 @@ Do not wait for it in the same call (no `Prefer: wait`): it takes minutes, the c
 and a retry starts a second paid run. Keep the run's id and check it with `get_predictions`.
 If a call fails, find the run with `list_predictions` before starting another.
 
+The model refuses some storyboard images, often ones with real-looking people, and the run
+ends as failed. Replicate does not charge a failed run, so the person's yes covers one more run
+without the storyboard image: drop it from `reference_images` and from the prompt, keep the logo
+as [Image1] and every frame's text.
+
 ## After it runs
 
 - The person plays it on the run's Replicate page (`urls.web`).
