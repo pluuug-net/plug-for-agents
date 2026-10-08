@@ -22,10 +22,15 @@
 
 ## A video into a design
 
-1. Upload the video to Canva by its link.
-2. Create a 9:16 story design with that video and the brand's Canva kit, and save it. An
-   uploaded video has no link of its own; the saved design is what the person opens.
-3. Add the headline, save, give the design's link, and export an MP4 after a yes.
+1. Upload the video to Canva by its link (currently `upload-asset-from-url`), within the hour
+   the link lasts. An uploaded video has no link of its own; the saved design is what the
+   person opens.
+2. Create an empty 9:16 design named after the brief with Canva's design creation tool
+   (currently `create-design`, format "Instagram Story"). Never use the design suggestion
+   tool (`generate-design`): it returns layouts with text and stock elements to choose from.
+3. Open the design for editing, remove anything on the page, place the video so it fills the
+   page, and save.
+4. Give the design's link. Add no text, logo or end card unless the person asks.
 
 ## Links Canva can fetch
 

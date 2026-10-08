@@ -9,13 +9,14 @@
 
 Run Replicate's official model `bytedance/seedance-2.5` (`create_models_predictions`) with:
 
-- `prompt`: the shot-by-shot prompt, naming the mood board as [Image1]
-- `reference_images`: the mood board link (reference images cannot be combined with a first
-  or last frame image)
-- `duration`: the sum of the frame timings, up to 30 seconds
+- `prompt`: the prompt from SKILL.md step 3, naming the storyboard image as [Image1] and the
+  logo as [Image2]. Spoken lines go in double quotes: the model speaks them.
+- `reference_images`: the storyboard image link, then the brand kit's logo image link, in
+  that order (reference images cannot be combined with a first or last frame image)
+- `duration`: the sum of the frame timings, 4 to 30 seconds
 - `resolution: 720p`
 - `aspect_ratio: 9:16`
-- `generate_audio: true`
+- `generate_audio`: true when the storyboard has audio, false when it has none
 
 Do not wait for it in the same call (no `Prefer: wait`): it takes minutes, the call times out,
 and a retry starts a second paid run. Keep the run's id and check it with `get_predictions`.
