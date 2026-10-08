@@ -5,9 +5,10 @@
 - Use Canva's tool that imports a design from a link (currently `import-design-from-url`),
   with the file's `psd_url`. Do not use the tool that uploads an asset: that adds a flat image,
   not an editable design.
-- Each import makes one design. Combine the ratios into one design, a page per ratio, with
-  Canva's merge tool (currently `merge-designs`), and name it after the brief. If the merge
-  fails, keep one design per ratio named `<brief title> | <ratio>`.
+- Each import makes one design. Name the first one after the brief, then merge each other ratio
+  into it with Canva's merge tool (currently `merge-designs`), one design per call, so it ends
+  with a page per ratio. If the merge fails, keep one design per ratio named
+  `<brief title> | <ratio>`.
 - The image and the headline arrive as separate layers, and the headline stays editable.
 - Canva uses its own font unless the brand's fonts are in the team's Canva brand kit. Say so
   if the headline font is not the brand's.
@@ -22,8 +23,9 @@
 ## A video into a design
 
 1. Upload the video to Canva by its link.
-2. Create a 9:16 story design with that video and the brand's Canva kit.
-3. Add the headline, save, give the link, and export an MP4 after a yes.
+2. Create a 9:16 story design with that video and the brand's Canva kit, and save it. An
+   uploaded video has no link of its own; the saved design is what the person opens.
+3. Add the headline, save, give the design's link, and export an MP4 after a yes.
 
 ## Links Canva can fetch
 
