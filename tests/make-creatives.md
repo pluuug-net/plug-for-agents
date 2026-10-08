@@ -6,11 +6,11 @@ now" there.
 
 | # | You type | It passes when the agent |
 |---|---|---|
-| 1 | "What static creatives should we make next? Plug Demo." | Shows one table of Plug Demo's static briefs with their exact titles, leaves out disliked and expired ones, flags retired ones, and does not lead with the brand. |
+| 1 | "What static creatives should we make next? Plug Demo." | Shows one table of Plug Demo's static briefs with their exact titles, leaves out disliked, expired and retired ones, and does not lead with the brand. |
 | 2 | Pick one brief | States the export cost first, then opens the ratios in the design tool as one editable design named after the brief. |
-| 3 | "Put the headline at the top and make it shorter" | Makes the edit, saves, and gives the link with what changed in words. |
+| 3 | "Put the headline at the top and make it shorter" | Makes the edit, saves, points out any clear mistake against the brief, and gives the link with what changed. |
 | 4 | "What works in our video creatives?" | Names what works and what does not, from Plug's reads, with the window. |
-| 5 | Paste a long video link | Asks whether the brand may use it, shows a clipping instruction built from Plug's read and fitted to the video, names the brand's template, states the cost, and stops. |
+| 5 | "Make short ads from this video: <link>. It's a stage interview, for awareness." | Asks whether the brand may use it, reads Plug for attention, shows a clipping instruction fitted to the video, names the brand's template, states the cost, and stops. |
 | 6 | "Make a video from Plug's top video brief" | Lets you pick a brief, writes a shot-by-shot prompt, states the cost, and stops. |
 | 7 | "What carousel creatives should we make?" | Says Plug has none that fit and offers to look wider. |
 
