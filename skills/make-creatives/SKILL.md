@@ -114,7 +114,8 @@ own tools make it. The person approves every step.
 
    Include people only if the brand's people policy allows them.
 4. Show the prompt and the cost, and on a yes generate it: 9:16, as long as the frame timings
-   add up to.
+   add up to. If the run fails on the storyboard image (the model refuses real-looking people),
+   say so and run it once more without that image, from the frame text and the logo alone.
 5. Give the link where the person can play it, and ask them to look for letters, extra people
    or a warped logo: you cannot watch it. Make a new take only after a yes, because it costs
    again.
