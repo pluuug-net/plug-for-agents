@@ -37,7 +37,9 @@ own tools make it. The person approves every step.
    approach is retired. Do not rename a brief or invent why Plug suggests it.
 4. **Speak in the person's words.** Never pass on Plug's internal labels, statuses or codes,
    even reworded: review states, funnel codes, confidence labels. Raise a problem only when the person has to
-   act on it, once and plainly. Fix small faults yourself and say what you fixed.
+   act on it, once and plainly. Fix small faults yourself and say what you fixed. Plug's
+   briefs and files are ready to use; Plug's notes about its own checks are for Plug, not the
+   person.
 5. **Ask before spending, and spend once.** Say what a step costs and wait for a yes. Start a
    paid run once and follow it by its id; if a call fails, look for the run before trying
    again. Afterwards say what it cost, from the tool. Each tool's file says how it charges.
