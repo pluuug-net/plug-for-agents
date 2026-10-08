@@ -23,13 +23,15 @@ own tools make it. The person approves every step.
 
 1. **Start from Plug.** Use a Plug brief, or Plug's read of what works and what does not. Never
    present a brief as Plug's unless Plug returned it. If nothing fits, say so and look wider:
-   older briefs, another format, a longer window.
+   older briefs, another format, a longer window. If still nothing fits, offer an idea from the
+   brand kit, and say it is not from Plug's data.
 2. **The brand is a hard rule.** Call `plug_get_brand` before making anything, not before
    choosing. Its colours, fonts, logo, claims, CTAs, people policy, and do's and don'ts all
-   apply. Text and logos go on in the design tool, never inside a generated video.
+   apply. Text and logos go on in the design tool, never inside a generated video: video
+   models garble letters and logos.
 3. **Show briefs as Plug names them.** One table of every brief that fits: its exact title, the
-   format, the date and its Plug link. Leave out briefs marked disliked or expired, and flag a
-   brief whose approach is retired. Do not rename a brief or invent why Plug suggests it.
+   format, the date and its Plug link. Leave out briefs marked disliked or expired, or whose
+   approach is retired. Do not rename a brief or invent why Plug suggests it.
 4. **Ask before spending.** Say what a step costs and wait for a yes. Each tool's file says how
    it charges.
 5. **One step at a time.** Show the result, then wait for the person to choose or say what to
@@ -43,27 +45,34 @@ own tools make it. The person approves every step.
 1. `plug_list_creative_briefs`: show the static briefs as rule 3 says. The person picks one.
 2. `plug_get_creative_brief`: what to make, the copy, the CTA and the finished images.
 3. `plug_export_brief_files`: say the cost first (each new PSD uses 1 of the workspace's
-   monthly exports, and a repeat within a day is free). Flag any file marked `held`: it failed
-   Plug's quality check.
+   monthly exports, and a repeat within a day is free).
 4. Open the PSDs in the design tool as one editable design named after the brief, one page per
    ratio. The image and the headline arrive as separate layers.
-5. The person says what to change. Make the edits, save, and give the design's link with what
-   changed, before and after, in words. Previews may not show in the chat.
+5. The person says what to change. Make the edits, save, then look at the result and point out
+   any clear mistake: text cut off or overlapping, a colour or font off brand, or anything that
+   goes against the brief and its composition. Show the design in the chat if you can, and give
+   its link with what changed, before and after.
 
 ## 2. Short clips from a long video
 
-1. `plug_list_winning_tags` and `plug_list_losing_tags` with `metric: hook_rate`, and
-   `plug_list_creative_approaches` with `media_type: video`. Say in one sentence what works,
-   and what does not, in the account's videos.
-2. Ask for the video (a link, or a file they upload in the clipping tool) if the person has
-   not given it, and what the video is (a talk, a testimonial, a vlog) if you cannot tell. Confirm the brand may use it and everyone in it
-   agreed.
-3. Write the clipping instruction: what works, put as moments this video can contain (a stage
-   talk has no product demo, but it has stories and proof), adding nothing Plug did not find.
-   Show the instruction, the brand's template and the cost, and on a yes submit: portrait,
-   15 to 30 second clips, captions on. It renders in the background.
-4. When the clips are ready, show the top three and say for each why it matches what works.
-5. The person approves, and you export each approved clip in HD.
+1. Ask for the video (a link, or a file they upload in the clipping tool) and what the clips
+   are for (attention, site visits or purchases), unless the person said. Confirm the brand may
+   use the video and everyone in it agreed.
+2. Read what works in videos for that goal: `plug_list_winning_tags`, `plug_list_losing_tags`
+   and `plug_list_creative_approaches` with `media_type: video`, in the comparison group for
+   that goal, on the metric it is judged by (attention: hook rate; visits: CTR; purchases: CPA
+   on the purchase event). Say in a few lines what works and what does not, leading with what
+   Plug is most sure of, without Plug's confidence labels.
+3. Understand the video first: what kind it is, who speaks and about what, from what the
+   person says and the video's title. Write the clipping instruction as what works, put as
+   moments this video can contain, adding nothing Plug did not find. Show the instruction, the
+   brand's template and the cost, and on a yes submit: portrait, 15 to 30 second clips,
+   captions on. Say when to check back: rendering takes about 10 minutes.
+4. When the clips are ready: the link to all clips in the clipping tool, then one table of
+   every clip, best fit first: title, length, and a short verdict against what works and what
+   the clips are for. Show the best fits as previews.
+5. Export the clips the person picks in HD. End with the download links (they expire) and the
+   clipping tool's link, where the clips stay.
 
 ## 3. A short video from a video brief
 
@@ -71,14 +80,15 @@ own tools make it. The person approves every step.
 2. `plug_get_creative_brief`: the storyboard frames (timing, on-screen text, description),
    the CTA, and the mood board in `generated_assets`.
 3. Write one prompt, shot by shot, from the frame timings, in the mood board's look. Add "no
-   on-screen text, captions or letters". Include people only if the brand's people policy
+   on-screen text, captions or letters" unless the person wants text in the video; then warn
+   once that the model garbles letters. Include people only if the brand's people policy
    allows them, and a voice only if the brand allows one; otherwise music and sound only.
 4. State the cost, and on a yes generate it: 9:16, as long as the frame timings add up to.
 5. Show the video and name any problem (garbled text, extra people, a warped logo). Make a new
    take only after a yes, because it costs again.
-6. In the design tool, put the video into a 9:16 design with the brand kit and add the
-   headline in the brand font. Save, give the link and say what is on it, and export an MP4
-   after a yes. Add no end card unless the person asks for one.
+6. Offer to finish it in the design tool, and recommend it when the brief has on-screen text:
+   a 9:16 design with the brand kit and the headline in the brand font. Save, give the link and
+   say what is on it, and export an MP4 after a yes. Add no end card unless the person asks.
 
 ## End with
 

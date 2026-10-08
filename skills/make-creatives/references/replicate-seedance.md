@@ -19,5 +19,6 @@ Run Replicate's official model `bytedance/seedance-2.5` with:
 
 ## After it runs
 
-- Replicate deletes the output after one hour. Move it into the design tool in the same step.
+- Replicate deletes the output after one hour. Move it into the design tool in the same step,
+  or give the person the link to download within the hour.
 - Check the take for garbled text, extra people and warped logos before showing it.
