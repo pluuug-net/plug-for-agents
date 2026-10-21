@@ -22,7 +22,9 @@ Tools: `opusclip_get_usage`, `opusclip_list_brand_templates`, `opusclip_submit_p
   never goes into the conversation. It needs a sound track, and access to OpusClip's storage
   (Claude in the browser has none).
 - Use the brand's template from the brand templates list, and call it by its name. The list's
-  caption style can be out of date. If only OpusClip's presets exist, say so before using one.
+  caption style can be out of date. A template named after another brand belongs to that brand:
+  never use it, even when it is the account's default. If only OpusClip's presets exist, say so
+  before using one.
 - Submit in clipping mode: the video link, the clipping instruction as the custom prompt, the
   template, portrait, clips of 15 to 30 seconds, captions on.
 - Do not use the modes that keep the whole video or skip curation when the person wants

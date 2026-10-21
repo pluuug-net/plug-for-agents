@@ -119,7 +119,10 @@ own tools make it. The person approves every step.
    - "no on-screen text, captions or letters": the frames' on-screen text is the person's to
      add in the design tool.
 
-   Include people only if the brand's people policy allows them.
+   People follow the brand's people policy. When it allows real people only, from the brand's
+   own photos, a person in the video comes from one of the kit's reference photos of people,
+   added as a further reference image; if the kit has none, make the video without people and
+   say so. Never let the model invent a person the policy does not allow.
 4. Show the prompt and the cost, and on a yes generate it: 9:16, as long as the frame timings
    add up to. If the run fails on the storyboard image (the model refuses real-looking people),
    say so and run it once more without that image, from the frame text and the logo alone.
