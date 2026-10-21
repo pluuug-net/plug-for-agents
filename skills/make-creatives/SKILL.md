@@ -108,7 +108,8 @@ own tools make it. The person approves every step.
 1. `plug_list_creative_briefs` with `format: "Video"`: show the briefs as rule 3 says. The
    person picks one.
 2. `plug_get_creative_brief`: the storyboard frames (timing, description, on-screen text and
-   audio) and the CTA in `brief`, and the storyboard image in `images`.
+   audio) and the CTA in `brief`, the storyboard image in `images`, and in `video_page` the blank
+   page the video goes on in the design tool.
 3. Write the video prompt from the storyboard without rewriting it:
    - the storyboard image as the first reference image, and each frame in order with its
      timing and description, word for word. Say that the image shows the frames side by side,
