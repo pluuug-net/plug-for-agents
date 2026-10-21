@@ -22,15 +22,16 @@
 
 ## A video into a design
 
+Never ask Canva to generate a design for this (`create-design`, `generate-design`): Canva has
+no blank-design tool, and a generated page spends the person's Canva AI allowance.
+
 1. Upload the video to Canva by its link (currently `upload-asset-from-url`), within the hour
-   the link lasts. An uploaded video has no link of its own; the saved design is what the
-   person opens.
-2. Create an empty 9:16 design named after the brief with Canva's design creation tool
-   (currently `create-design`, format "Instagram Story"). Never use the design suggestion
-   tool (`generate-design`): it returns layouts with text and stock elements to choose from.
-3. Open the design for editing. Even an empty design arrives with template text and pictures,
-   so delete every element on the page, then place the video at the top left at 1080 by 1920
-   so it fills the page, and save.
+   the link lasts.
+2. Import the brief's `video_page` (from `plug_get_creative_brief`) as a design named after
+   the brief (currently `import-design-from-url`). It is a blank 9:16 page holding one white
+   picture that fills it.
+3. Open the design for editing, swap that picture for the video (currently `update_fill`, as a
+   video), and save. The video then fills the page.
 4. Give the design's link. Add no text, logo or end card unless the person asks.
 
 ## Links Canva can fetch

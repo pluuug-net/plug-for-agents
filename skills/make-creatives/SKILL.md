@@ -35,10 +35,10 @@ own tools make it. The person approves every step.
    such as a phone screen or a car, and only from the brand kit's logo image.
 3. **Show briefs in Plug's order, as Plug names them.** One table of every brief that fits, in
    the order Plug returns them: its exact title, the format, what it is for in plain words
-   (purchases, site visits, attention), the date and its Plug link. Leave out briefs marked
-   disliked or expired, or whose approach is retired. When the person asks for one brief, take
-   the first that fits the format and goal they named. Do not rename a brief, show Plug's
-   ranking, or invent why Plug suggests it.
+   (purchases, site visits, attention), the date and its Plug link. Leave out briefs whose
+   status is disliked or expired, or whose approach is retired. When the person asks for one
+   brief, take the first that fits the format and goal they named. Do not rename a brief, show
+   Plug's ranking, or invent why Plug suggests it.
 4. **Name what you make after the brief.** Every design and file takes the brief's exact title,
    with the ratio added when there is more than one (`<brief title> | 9:16`). Clips made without
    a brief keep the clipping tool's titles.
@@ -62,10 +62,14 @@ own tools make it. The person approves every step.
 
 ## 1. A static from a brief
 
-1. `plug_list_creative_briefs`: show the static briefs as rule 3 says. The person picks one.
+1. `plug_list_creative_briefs` with `format: "Static"`: show the briefs as rule 3 says. The
+   person picks one.
 2. `plug_get_creative_brief`: what to make, the copy, the CTA and the finished images.
-3. `plug_export_brief_files`: say the cost first (each new PSD uses 1 of the workspace's
-   monthly exports, and a repeat within a day is free).
+3. Ask which ratios the person needs (4:5 for feeds, 9:16 for Stories, Reels and TikTok, 1:1),
+   unless they said. `plug_export_brief_files` with those `ratios`: say the cost first (each
+   new PSD costs 1 credit, and so does each ratio the brief does not have yet; a repeat within
+   a day is free). A ratio Plug is still making comes back as making: give the ones that are
+   ready, and ask for the rest again after the 3 to 5 minutes it takes.
 4. Open the PSDs in the design tool as one editable design named after the brief, one page per
    ratio. The image and the headline arrive as separate layers.
 5. The person says what to change. Make the edits, save, then look at the result and point out
@@ -81,12 +85,16 @@ own tools make it. The person approves every step.
 2. Read what works in videos for that goal: `plug_list_winning_tags`, `plug_list_losing_tags`
    and `plug_list_creative_approaches` with `media_type: video`, in the comparison group for
    that goal, on the metric it is judged by (attention: hook rate; visits: CTR; purchases: CPA
-   on the purchase event). If the read is thin, include paused creatives, but never leave the
-   goal's group; if it is still thin, say Plug has no clear read for this goal yet. Say in a
-   few lines what works and what does not, leading with what Plug is most sure of.
+   on the purchase event). When the brand runs both Meta and TikTok, read the platform the
+   clips are for (ask if the person has not said) by passing that platform's ad account. If
+   the read is thin, include paused creatives, but never leave the goal's group; if it is
+   still thin, say Plug has no clear read for this goal yet. Say in a few lines what works and
+   what does not, leading with what Plug is most sure of.
 3. Understand the video first: what kind it is, who speaks and about what, from what the
    person says and the video's title. Write the clipping instruction as what works, put as
-   moments this video can contain, adding nothing Plug did not find. Show the instruction, the
+   moments this video can contain, adding nothing Plug did not find. Aim it at the brand's
+   audience from its profile, and ask for nothing the kit's don'ts rule out, such as speaking
+   to an audience the brand does not sell to. Show the instruction, the
    brand's template and the cost, and on a yes submit: portrait, 15 to 30 second clips,
    captions on. Say when to check back: rendering takes about 10 minutes.
 4. When the clips are ready: the link to all clips in the clipping tool, then one table of
@@ -97,9 +105,11 @@ own tools make it. The person approves every step.
 
 ## 3. A short video from a video brief
 
-1. `plug_list_creative_briefs`: show the video briefs as rule 3 says. The person picks one.
+1. `plug_list_creative_briefs` with `format: "Video"`: show the briefs as rule 3 says. The
+   person picks one.
 2. `plug_get_creative_brief`: the storyboard frames (timing, description, on-screen text and
-   audio), the CTA, and the storyboard image in `generated_assets`.
+   audio) and the CTA in `brief`, the storyboard image in `images`, and in `video_page` the blank
+   page the video goes on in the design tool.
 3. Write the video prompt from the storyboard without rewriting it:
    - the storyboard image as the first reference image, and each frame in order with its
      timing and description, word for word. Say that the image shows the frames side by side,
