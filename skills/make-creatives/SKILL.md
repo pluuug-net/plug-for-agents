@@ -92,7 +92,9 @@ own tools make it. The person approves every step.
    what does not, leading with what Plug is most sure of.
 3. Understand the video first: what kind it is, who speaks and about what, from what the
    person says and the video's title. Write the clipping instruction as what works, put as
-   moments this video can contain, adding nothing Plug did not find. Show the instruction, the
+   moments this video can contain, adding nothing Plug did not find. Aim it at the brand's
+   audience from its profile, and ask for nothing the kit's don'ts rule out, such as speaking
+   to an audience the brand does not sell to. Show the instruction, the
    brand's template and the cost, and on a yes submit: portrait, 15 to 30 second clips,
    captions on. Say when to check back: rendering takes about 10 minutes.
 4. When the clips are ready: the link to all clips in the clipping tool, then one table of
