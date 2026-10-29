@@ -58,7 +58,8 @@ own tools make it. The person approves every step.
    click, then wait for them to choose or say what to change.
 10. **Links expire.** Plug's files and generated videos last about an hour, so move each one on
    in the same step it is made.
-11. **This ends at a finished creative.** Saving it and launching it are the person's own steps.
+11. **Plug's part ends at a finished creative.** Saving it is the person's step. Putting it
+    into Meta is offered only as section 4 says, and the person always presses go.
 
 ## 1. A static from a brief
 
@@ -132,6 +133,21 @@ own tools make it. The person approves every step.
 6. Put the video into the design tool: one 9:16 design named after the brief, the video filling
    the page and nothing else. Save, give the link, and list the storyboard's on-screen lines
    with their timings for the person to add.
+
+## 4. Put a finished creative into Meta
+
+Only when a connected tool can create Meta ads, such as Meta's own MCP. Otherwise skip this
+section.
+
+1. Offer it once the creative is finished: "Want me to put this into Meta as a paused ad?"
+2. Find the ad set that fits the brief: the brief gives its funnel stage, audience and goal,
+   not an ad set, so use the Meta tool to find the active ad set that matches, unless the
+   person names one. Show the ad set by name and ask.
+3. Write the ad's primary text, headline and description from the brief, fitted to that ad set
+   and to Meta's limits, in the brand's words and claims (rule 2). Show them with the creative.
+4. On a yes, create the ad in that ad set, paused. A static goes up as an image, a video as a
+   video: check the format the tool used before saying it is done.
+5. Give the ad's link in Meta and say it is paused: the person reviews it there and presses go.
 
 ## End with
 
