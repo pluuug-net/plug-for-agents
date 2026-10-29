@@ -43,12 +43,20 @@ read-only except the brand tools (rule 2a). No tool ever changes an ad account.
    for different events are never added together.
 5. **Use the page's own verdict words** (Winner / Test / Loser / Unclear / Mixed / No verdict),
    never the colour codes.
-6. **The CSV export is a file, not an answer.** `plug_export_creative_tags` returns a single-use
+6. **The CSV exports are files, not answers.** `plug_export_creative_tags` (raw tags) and
+   `plug_export_creative_performance` (daily performance per creative) return a single-use
    download link (valid 60 minutes). Save the file and analyse it on disk; never read the CSV
-   back into the conversation. When the user wants an answer about winning elements, use
-   `plug_list_winning_tags` / `plug_list_losing_tags` instead.
-7. **Signed URLs expire.** Brief assets, brand-kit reference images and export links live for
-   60 minutes; re-call the tool for fresh URLs instead of retrying dead ones.
+   back into the conversation. When the user wants an answer about winning elements or
+   creatives, use `plug_list_winning_tags` / `plug_list_losing_tags` or
+   `plug_list_winning_media` / `plug_list_losing_media` instead. In the performance file an
+   empty `results` cell means unmeasured for that creative, never zero, `cell` (meta-ios,
+   meta-web, tiktok-android, ...) counts a different result in each value, so compare creatives
+   within one cell, and early / hold views are defined differently on Meta and TikTok, so compare
+   them within one platform. `grain='ad'` gives one row per ad per day instead of one per
+   creative inside an ad; use it when results have to reconcile with the ad's totals.
+7. **Signed URLs expire.** Brief images and creative images last 30 days; files for a tool
+   (exported PNGs and PSDs, brand-kit reference images, download links) last 60 minutes.
+   Re-call the tool for fresh URLs instead of retrying dead ones.
 8. **Visuals render in MCP-Apps hosts** (claude.ai web, Claude Desktop). In other hosts the same
    tools still return every URL; link them instead of describing missing images as an error.
 9. **Tag numbers mean two different things.** On the tags tools, `x_lift` is prevalence (how much
@@ -85,10 +93,11 @@ read-only except the brand tools (rule 2a). No tool ever changes an ad account.
 
 ## Recipe: daily account review
 
-1. `plug_list_moves(advertiser_id)`: the open queue, same visibility as the Plug Moves page.
-2. `plug_get_move(recommendation_id)` for anything the user wants to act on: full justification,
-   target entities, and the triggering issue.
-3. Summarise by action type, lead with the highest-impact item, and link each Move's
+1. `plug_list_moves(advertiser_id)`: the Moves to make, the same list and counts as the Plug
+   Moves page, by type and biggest spend first. `type` narrows to one of the page's types.
+2. `plug_get_move(recommendation_id)` for anything the user wants to act on: why, the evidence
+   behind it, and for a Refresh its creative briefs.
+3. Summarise by type, lead with the highest-impact item, and link each Move's
    `plug_app_url` so the user can review and act in Plug.
 4. If the user wants to execute changes (pause, budget), that happens in their own tools (Meta
    Ads Manager, or Meta's own MCP if they have it connected) with explicit human approval per
@@ -132,15 +141,15 @@ nothing about the live kit changes until they do.
    own values come back on any tags read (`tag_name`, `tag_value`). Pass the ones that exist,
    never the nearest-sounding one: an unknown value is refused with the real values listed, and
    the right move is to ask the user which they meant.
-2. ONE call: `plug_get_brief_for_peer_group(advertiser_id, cohort_tags={"tags": {"media_style":
+2. ONE call: `plug_list_creative_briefs(advertiser_id, cohort_tags={"tags": {"media_style":
    ["Creator content", "UGC"]}}, partner='<who it is for>', ask='double_down' | 'new_angle')`.
-   `ask='new_angle'` is for "something new / different / not what we run"; the default briefs
-   more of what already wins among those creatives. Never build a brief out of the list tools by hand:
+   `ask='new_angle'` is for "something new / different / not what we run"; `'double_down'` briefs
+   more of what already wins among those creatives. Without `ask` the same tool lists the briefs. Never build a brief out of the list tools by hand:
    a brief assembled from four reads is a fifth definition of what Plug already answers once.
-3. Show the brief first, then the evidence: `evidence` carries the approach table, the winning
-   creatives and the winning and losing elements, each with the population it was measured on.
-   Say which creatives the figures cover once, in `population.filters.cohort_description`'s own
-   words, and never twice.
+3. Show the briefs first, then the evidence: `evidence` carries the approaches, the winning
+   creatives and the winning and losing elements, each with what it was measured on. Say which
+   creatives the figures cover once, in `subtitle`'s own words, and never twice. Its words are
+   the reader's; the tool's parameter names never belong in a sentence you write.
 4. An empty `briefs` is an answer, not a gap: `lead` says no Plug brief can be used and what was
    searched, `evidence` still carries the reads. Say what they show and write no brief of your
    own. Plug builds a brief from the Creatives data on the Creatives page; one written in a
@@ -148,9 +157,6 @@ nothing about the live kit changes until they do.
 5. A creative's Winner or Loser verdict is its peer group's across the account, not a verdict
    among the creatives you narrowed to. Tag-value verdicts ARE measured on those creatives only.
    Say which is which where it matters.
-6. Name the filter the way the read names it: say which creatives the figures cover, in the
-   sentence `population.filters.cohort_description` comes back with. The word inside that
-   field name is ours, not the reader's, and never belongs in a sentence you write.
 
 ## Recipe: creative performance review
 
