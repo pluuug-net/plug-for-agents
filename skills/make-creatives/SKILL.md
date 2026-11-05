@@ -65,7 +65,10 @@ own tools make it. The person approves every step.
 
 1. `plug_list_creative_briefs` with `format: "Static"`: show the briefs as rule 3 says. The
    person picks one.
-2. `plug_get_creative_brief`: what to make, the copy, the CTA and the finished images.
+2. `plug_get_creative_brief`: what to make, the copy, the CTA, the finished images and the brief's
+   `comments`, what people on the team have said about it. Apply the comments without asking the
+   person to repeat them. If a comment goes against the brief or the brand, say so once and follow
+   the brand.
 3. Ask which ratios the person needs (4:5 for feeds, 9:16 for Stories, Reels and TikTok, 1:1),
    unless they said. `plug_export_brief_files` with those `ratios`: say the cost first (each
    new PSD costs 1 credit, and so does each ratio the brief does not have yet; a repeat within
@@ -77,6 +80,9 @@ own tools make it. The person approves every step.
    any clear mistake: text cut off or overlapping, a colour or font off brand, or anything that
    goes against the brief and its composition. Show the design in the chat if you can, and give
    its link with what changed, before and after.
+6. Save the design's link back on the brief, so the team finds it:
+   `plug_update_creative_brief` with `brief_id` and `comment` set to `Design: <the link>`. Say you
+   did. Do not set a like or dislike unless the person asks.
 
 ## 2. Short clips from a long video
 
@@ -109,8 +115,9 @@ own tools make it. The person approves every step.
 1. `plug_list_creative_briefs` with `format: "Video"`: show the briefs as rule 3 says. The
    person picks one.
 2. `plug_get_creative_brief`: the storyboard frames (timing, description, on-screen text and
-   audio) and the CTA in `brief`, the storyboard image in `images`, and in `video_page` the blank
-   page the video goes on in the design tool.
+   audio) and the CTA in `brief`, the storyboard image in `images`, the numbered `frames` (title,
+   timing, on-screen text, audio), in `video_page` the blank page the video goes on in the design
+   tool, and the brief's `comments`. Apply the comments as in section 1.
 3. Write the video prompt from the storyboard without rewriting it:
    - the storyboard image as the first reference image, and each frame in order with its
      timing and description, word for word. Say that the image shows the frames side by side,
@@ -132,7 +139,21 @@ own tools make it. The person approves every step.
    again.
 6. Put the video into the design tool: one 9:16 design named after the brief, the video filling
    the page and nothing else. Save, give the link, and list the storyboard's on-screen lines
-   with their timings for the person to add.
+   with their timings for the person to add. Save the design's link back on the brief as section 1,
+   step 6 says.
+
+### One frame of a video brief
+
+When the person wants one beat of the storyboard in the design tool ("send frame 3 to Canva"), not
+the whole video:
+
+1. Name the frame from `frames` in `plug_get_creative_brief` (number, title, timing).
+2. `plug_export_brief_files` with `frames` set to that number: say the cost first (all the frames of
+   one storyboard cost one export between them, and a repeat within a day is free). Each frame comes
+   back as its own 9:16 PSD and PNG.
+3. Open the PSD in the design tool as one editable design named `<brief title> | frame <number>`, as
+   the design tool's file says, and give its link. Save that link on the brief as section 1, step 6
+   says.
 
 ## 4. Put a finished creative into Meta
 

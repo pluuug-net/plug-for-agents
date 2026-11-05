@@ -13,6 +13,12 @@
 - Canva uses its own font unless the brand's fonts are in the team's Canva brand kit. Say so
   if the headline font is not the brand's.
 
+## Opening one frame of a video brief
+
+Import the frame's `psd_url` the same way (`import-design-from-url`). A frame is its own 9:16
+design, so there is nothing to merge: name it `<brief title> | frame <number>`. The frame's text
+arrives as editable layers.
+
 ## Editing
 
 - Edit with Canva's editing tool (currently `edit-design`). Canva edits in a draft, and its
