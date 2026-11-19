@@ -83,6 +83,11 @@ own tools make it. The person approves every step.
 6. Save the design's link back on the brief, so the team finds it:
    `plug_update_creative_brief` with `brief_id` and `comment` set to `Design: <the link>`. Say you
    did. Do not set a like or dislike unless the person asks.
+7. **Another language.** If the person needs the static for a market in another language,
+   duplicate the design's pages and change only the text layers. Keep the image, the layout and
+   the brand. Say that a native speaker should check it before launch. Save its link on the same
+   brief as step 6 does, as `Design (<language>): <the link>`. It is a version of the same
+   creative, not a new brief.
 
 ## 2. Short clips from a long video
 
