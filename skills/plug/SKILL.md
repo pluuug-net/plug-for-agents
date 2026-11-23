@@ -11,7 +11,7 @@ description: >
 # Working with Plug
 
 Plug is an AI performance marketer for paid social. Its MCP tools return conclusions, not raw
-metrics: what to do next (Moves), which creative approaches and elements win or lose and why,
+metrics: what to do next (Moves), how the account did on each campaign's own goal, which creative approaches and elements win or lose and why,
 what to make next (creative briefs), the brand rules production must follow (brand profile and kit), and
 the documents Plug has published for this customer (Pulse, competitor reports).
 Everything is scoped to the workspaces the user's Plug account can access, and everything is
@@ -47,7 +47,7 @@ read-only except the brand tools (rule 2a). No tool ever changes an ad account.
    `plug_export_creative_performance` (daily performance per creative) return a single-use
    download link (valid 60 minutes). Save the file and analyse it on disk; never read the CSV
    back into the conversation. When the user wants an answer about winning elements or
-   creatives, use `plug_list_winning_tags` / `plug_list_losing_tags` or
+   creatives, use `plug_list_creative_elements` or
    `plug_list_winning_media` / `plug_list_losing_media` instead. In the performance file an
    empty `results` cell means unmeasured for that creative, never zero, `cell` (meta-ios,
    meta-web, tiktok-android, ...) counts a different result in each value, so compare creatives
@@ -90,6 +90,18 @@ read-only except the brand tools (rule 2a). No tool ever changes an ad account.
    this account does not (and the reverse), which patterns to avoid fighting head-on, and which
    brief candidates the report's findings support or kill. Cite the report's own numbers, and
    use the preserved links when the user wants to see a competitor's actual ad.
+
+## Recipe: how the account or a campaign did
+
+1. `plug_get_performance(advertiser_id, ...)`: the whole advertiser, one ad account, or the
+   campaigns `scope` names in the user's words ("Prospecting Thailand"), Meta and TikTok in one
+   answer. One call answers a comparison: `compare='previous'` (the days just before),
+   `'year_ago'`, or explicit `compare_start_date` / `compare_end_date`; `group_by='month'`,
+   `'week'` or `'day'` gives the trend, `'campaign'` the campaigns by spend.
+2. Each row is one event in one currency, because each ad counts on its ad set's own event:
+   never add results or costs across events, and add money only within a currency (`totals`).
+   Quote `population.description`, and say when `days_with_spend` is below `days`.
+3. Add `plug_list_moves` with the same `scope` for what Plug says to do about it.
 
 ## Recipe: daily account review
 
@@ -158,6 +170,51 @@ nothing about the live kit changes until they do.
    among the creatives you narrowed to. Tag-value verdicts ARE measured on those creatives only.
    Say which is which where it matters.
 
+## Recipe: ask Plug to make new briefs
+
+Use this when the user wants new creative briefs made ("two videos for the Testing campaign", "what should
+we brief next?", "make our version of this ad"), not when they want to read the ones that exist.
+
+1. `plug_create_brief_drafts(advertiser_id, ask)`: pass the user's own words as `ask`. Pass `earlier` only for
+   what they already settled in this conversation that the ask leaves open, and `chosen` for ad sets,
+   campaigns, approaches or creatives they already picked, by id. Nothing is written or charged.
+2. Show the cards and the `lead` sentence (count, credits needed, credits left) as they come back. Say what is
+   in `unresolved` (names Plug could not find) and `notes`. A recent brief that fits is offered free: say so.
+3. A change in words goes to `plug_update_brief_drafts(draft_id, version, words)` with the version the user
+   is looking at. On `stale_version` show the latest cards and apply the change again.
+4. Only when the user agrees, `plug_create_creative_briefs(draft_id, version, user_words)`, with their own reply
+   copied word for word in `user_words`, never your own words for them. Never make
+   without the user having seen the cards for that version. `insufficient_credits` means nothing was
+   charged: tell them what is needed and what is left. `too_many_open_briefs` means nothing was made or
+   charged: the workspace has too many briefs on the way; tell them to ask again once some are ready.
+5. A make returns at once. Tell the user the briefs take about 5 to 7 minutes for the text and about 15 for the
+   first visual, and give the links. When they ask, or after that time,
+   `plug_list_creative_briefs(advertiser_id, request_id)` shows each brief's stage; `plug_get_creative_brief`
+   reads a finished one with its comments.
+6. "Dislike the second one, too salesy" is `plug_update_creative_brief(request_id, number=2,
+   reaction='dislike', comment='too salesy')`. It is saved under the user's name as the page's own and Plug
+   learns from it. Apply a brief's comments when you make creatives from it.
+7. Another ratio of a static ("give me 9:16") is `plug_export_brief_files` with that ratio, 1 credit. One beat of a
+   video ("send frame 3 to Canva") is `plug_export_brief_files(brief_id, frames=[3])`: a 9:16 PSD and PNG of that
+   frame, ready for the design tool; all the frames of one storyboard cost one export. The frame numbers, titles,
+   timings and on-screen lines are `frames` in `plug_get_creative_brief`.
+8. A competitor ad, the user's own idea, or an example of what they do NOT want, as a file: do not open links to
+   ads. Call `plug_create_brand_images(advertiser_id, target='brief_reference')`, give the user the `upload_page`
+   link, and when they say they uploaded, pass the `attachment_id` in `plug_create_brief_drafts(attachments=[...])`
+   (or `plug_update_brief_drafts(attachments=[...])` for drafts already shown). Copy the user's own words about each
+   file into the ask exactly ("exactly the same people and product styling", "just the idea", "only the captions",
+   "this is what we don't want"): Plug reads them to decide whether the file is used or avoided, on which drafts, and
+   how, and they outrank everything else about the brief except two floors (no other brand's logo, name, product
+   or claims; this brand's own logo, fonts and colours). Never paraphrase or soften them. Each draft shows the file
+   as "your video" or "your image" with Use or Avoid and the words it was given; say that back. A file still being
+   read shows "reading" and its draft cannot be made until it is read (an image takes seconds, a video up to two
+   minutes); ask the user to wait, then make it. An image is up to 20 MB, a video up to 200 MB and 90 seconds.
+9. "Which briefs do we have for X?" is `plug_list_creative_briefs`: say "3 of 12" as it does and give its Open in Plug
+   link, which opens the Creative Briefs page on the same view.
+
+Do not write a brief yourself when Plug can make one, and do not fetch links to ads: ask the user for the image
+or video file instead.
+
 ## Recipe: creative performance review
 
 1. `plug_list_creative_approaches(advertiser_id)`: pass every dimension the user named
@@ -167,8 +224,9 @@ nothing about the live kit changes until they do.
    totals) or `plug_list_approaches_in_window` (ranking): do not answer "that window is not
    available".
 3. `plug_list_winning_media` / `plug_list_losing_media` for the actual creatives (widest
-   window: `period='last_90d'`); `plug_list_winning_tags` / `plug_list_losing_tags` for the
-   elements to keep or drop; verdicts are per metric, so pass the metric the user asked about.
+   window: `period='last_90d'`); `plug_list_creative_elements` for the elements to keep or drop
+   (`outcome='winning'` / `'losing'`), how a trait splits and what was never made (`tag_name`), and
+   what moved (`sort='change'`); verdicts are per metric, so pass the metric the user asked about.
    All three families share the defaults in rule 3, so "which media are winning" with nothing
    else named means: the dominant ad account, the last 30 days, active media, the resolved
    event, its largest comparison group, ranked best first against that group's typical ad.

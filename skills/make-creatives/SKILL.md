@@ -94,7 +94,7 @@ own tools make it. The person approves every step.
 1. Ask for the video (a link, or a file they upload in the clipping tool) and what the clips
    are for (attention, site visits or purchases), unless the person said. Confirm the brand may
    use the video and everyone in it agreed.
-2. Read what works in videos for that goal: `plug_list_winning_tags`, `plug_list_losing_tags`
+2. Read what works in videos for that goal: `plug_list_creative_elements` (winning and losing)
    and `plug_list_creative_approaches` with `media_type: video`, in the comparison group for
    that goal, on the metric it is judged by (attention: hook rate; visits: CTR; purchases: CPA
    on the purchase event). When the brand runs both Meta and TikTok, read the platform the
