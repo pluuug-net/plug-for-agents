@@ -23,7 +23,8 @@ own tools make it. The person approves every step.
 
 ## Rules
 
-1. **Start from Plug.** Use a Plug brief, or Plug's read of what works and what does not. Never
+1. **Start from Plug.** Use a Plug brief, or Plug's read of what works and what does not. An ad
+   the person brings is a start too (section 4). Never
    present a brief as Plug's unless Plug returned it. If nothing fits, say so and look wider:
    older briefs, another format, a longer window. If still nothing fits, offer an idea from the
    brand kit, and say it is not from Plug's data.
@@ -36,7 +37,7 @@ own tools make it. The person approves every step.
 3. **Show briefs in Plug's order, as Plug names them.** One table of every brief that fits, in
    the order Plug returns them: its exact title, the format, what it is for in plain words
    (purchases, site visits, attention), the date and its Plug link. Leave out briefs whose
-   status is disliked or expired, or whose approach is retired. When the person asks for one
+   approach is retired. When the person asks for one
    brief, take the first that fits the format and goal they named. Do not rename a brief, show
    Plug's ranking, or invent why Plug suggests it.
 4. **Name what you make after the brief.** Every design and file takes the brief's exact title,
@@ -59,7 +60,7 @@ own tools make it. The person approves every step.
 10. **Links expire.** Plug's files and generated videos last about an hour, so move each one on
    in the same step it is made.
 11. **Plug's part ends at a finished creative.** Saving it is the person's step. Putting it
-    into Meta is offered only as section 4 says, and the person always presses go.
+    into Meta is offered only as section 5 says, and the person always presses go.
 
 ## 1. A static from a brief
 
@@ -70,9 +71,8 @@ own tools make it. The person approves every step.
    person to repeat them. If a comment goes against the brief or the brand, say so once and follow
    the brand.
 3. Ask which ratios the person needs (4:5 for feeds, 9:16 for Stories, Reels and TikTok, 1:1),
-   unless they said. `plug_export_brief_files` with those `ratios`: say the cost first (each
-   new PSD costs 1 credit, and so does each ratio the brief does not have yet; a repeat within
-   a day is free). A ratio Plug is still making comes back as making: give the ones that are
+   unless they said. `plug_export_brief_files` with those `ratios`: say the cost the tool states
+   first. A ratio Plug is still making comes back as making: give the ones that are
    ready, and ask for the rest again after the 3 to 5 minutes it takes.
 4. Open the PSDs in the design tool as one editable design named after the brief, one page per
    ratio. The image and the headline arrive as separate layers.
@@ -153,14 +153,31 @@ When the person wants one beat of the storyboard in the design tool ("send frame
 the whole video:
 
 1. Name the frame from `frames` in `plug_get_creative_brief` (number, title, timing).
-2. `plug_export_brief_files` with `frames` set to that number: say the cost first (all the frames of
-   one storyboard cost one export between them, and a repeat within a day is free). Each frame comes
+2. `plug_export_brief_files` with `frames` set to that number: say the cost the tool states
+   first. Each frame comes
    back as its own 9:16 PSD and PNG.
 3. Open the PSD in the design tool as one editable design named `<brief title> | frame <number>`, as
    the design tool's file says, and give its link. Save that link on the brief as section 1, step 6
    says.
 
-## 4. Put a finished creative into Meta
+## 4. Our version of an ad the person saw
+
+When the person brings an ad they saw, often another brand's, as an image or video file, ask with
+buttons which way they want it:
+
+1. **Get a Plug brief:** ask Plug for a brief with the file attached, and pass on the person's
+   words as they said them. Plug shows the brief cards and the credits before anything is made.
+   Then make the creative from the brief, as section 1 or 3 says.
+2. **Make it now:** read the brand (rule 2), then what wins and loses in that format
+   (`plug_list_creative_elements`, `plug_list_winning_media`). Keep what makes the ad work: its
+   look and how its message is built. Everything else is ours: our product, our claims and our
+   brand. Use what wins and avoid what loses. Never take the other brand's text, logo, people or
+   product. Make a static in the design tool. Make a video with the video model and then the
+   design tool, as section 3 does, with frames you write from the ad.
+3. When it is finished, offer to add it to Plug as a new brief, if Plug's tools can take one, so
+   it can be approved and launched like any brief.
+
+## 5. Put a finished creative into Meta
 
 Only when a connected tool can create Meta ads, such as Meta's own MCP. Otherwise skip this
 section.

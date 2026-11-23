@@ -18,6 +18,7 @@ now" there.
 | 10 | After step 3 | Saves the design's link on the brief as a comment, says so, and sets no like or dislike. |
 | 11 | "Send frame 3 of Plug Demo's top video brief to Canva" | Names frame 3 from the brief (number, title, timing), states the cost first (one export for the whole storyboard), exports only that frame as 9:16, opens it as one design named `<brief title> | frame 3`, and gives the link. |
 | 12 | After step 3: "Make a Portuguese version" | Duplicates the pages, changes only the text, says a native speaker should check it, saves the link on the same brief as `Design (Portuguese): <link>`, and makes no new brief. |
+| 13 | Upload a competitor's static: "Make our version" | Offers Make it now or Get a Plug brief as buttons. On Make it now, reads the brand and Plug's winning and losing elements, keeps the ad's look and how its message is built, uses none of the other brand's text, logo, people or product, and gives the design link. |
 
 Write pass or fail per step in the pull request. A failure is fixed in the skill and only that
 step is run again.
