@@ -36,8 +36,7 @@ other tools you connect handle your data under their own terms.
 
 ## Changing the skills
 
-- `skills/plug` is a mirror. Its one source is `mcp_server/skill/SKILL.md` in Plug's connector
-  (pluuug-net/plug-ai), and a job copies the deployed version from
-  `https://mcp.plug.inc/skill.md`. Edit it there, never here.
-- `skills/make-creatives` lives here. Every merge to `main` reaches everyone who syncs this
-  marketplace, so run the checks in `tests/` before merging.
+Both skills are mirrors. Their one source is `mcp_server/skill/` in Plug's connector
+(pluuug-net/plug-ai), where a test fails if a skill names a tool the connector does not have. A
+daily job copies the deployed versions from `https://mcp.plug.inc` into `skills/`. Edit them
+there, never here.

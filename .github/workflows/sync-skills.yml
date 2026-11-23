@@ -1,0 +1,44 @@
+# Mirrors Plug's skills from Plug's connector, their one source, into skills/.
+# Both are edited in pluuug-net/plug-ai (mcp_server/skill/), tested there against the tools the
+# connector registers, and served from https://mcp.plug.inc once deployed. Never edit the copies
+# in this repo.
+name: Sync the skills
+
+on:
+  schedule:
+    - cron: "17 4 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch the deployed skills
+        run: |
+          set -euo pipefail
+          base=https://mcp.plug.inc
+          tmp=$(mktemp -d)
+          curl -fsSL "$base/skill.md" -o "$tmp/plug.md"
+          head -3 "$tmp/plug.md" | grep -qx "name: plug" || { echo "Not the Plug skill, stopping"; exit 1; }
+          mkdir -p "$tmp/make-creatives/references"
+          curl -fsSL "$base/skills/make-creatives/SKILL.md" -o "$tmp/make-creatives/SKILL.md"
+          head -3 "$tmp/make-creatives/SKILL.md" | grep -qx "name: make-creatives" || { echo "Not the make-creatives skill, stopping"; exit 1; }
+          # The reference files are the ones the skill names.
+          for ref in $(grep -oE 'references/[a-z0-9-]+\.md' "$tmp/make-creatives/SKILL.md" | sort -u); do
+            curl -fsSL "$base/skills/make-creatives/$ref" -o "$tmp/make-creatives/$ref"
+          done
+          cp "$tmp/plug.md" skills/plug/SKILL.md
+          rm -rf skills/make-creatives
+          cp -r "$tmp/make-creatives" skills/make-creatives
+      - name: Commit if they changed
+        run: |
+          git add -A skills
+          git diff --cached --quiet && { echo "Already up to date"; exit 0; }
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Sync the skills from mcp.plug.inc"
+          git push
