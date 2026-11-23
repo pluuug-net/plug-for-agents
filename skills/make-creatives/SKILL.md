@@ -1,197 +1,91 @@
 ---
 name: make-creatives
-description: Makes paid social creatives for Meta and TikTok from Plug, one step at a time. A static from a Plug brief, short clips cut from a long video and steered by what works in the account, or a short video from a Plug video brief, each finished in the team's own design, clipping or video tool. Use when someone asks what creatives to make next, or asks for a static, clips or a short video for their brand.
+description: Makes paid social creatives for Meta and TikTok with Plug, from the decision of what to make to a launched ad. Plug says what to make, from what works in the account and the brand's rules; Claude or the team's own tools make it; the person approves every step. Use when someone asks what creatives to make next, or asks for a static, a video, clips or a new version of an ad for their brand.
 ---
 
-# Make creatives from Plug
+# Make creatives with Plug
 
-Plug decides what to make next, from what works and what does not in the account. The team's
-own tools make it. The person approves every step.
+Plug decides what to make, holds the brand and knows where it runs. Claude or the team's own
+tools make it. Every creative ends launched, and the person approves every step.
 
-## What this needs
+## What Plug brings
 
-- **Plug's connector.** Every use case starts there.
-- **A tool for each job**, connected by the team. Today's defaults, each with a file to read
-  before first use:
-  - design tool: Canva, `references/canva.md`
-  - clipping tool: OpusClip, `references/opusclip.md`
-  - video model: Seedance 2.5 on Replicate, `references/replicate-seedance.md`
+Read these from Plug before making anything. They are why the creative is worth making.
 
-  If the team uses another tool for a job, follow the same steps with it.
-- **Load a use case's tools in one search**: the Plug tools named in its steps, and the tools
-  named in that tool's file.
+| Plug gives | Tools |
+|---|---|
+| What to make: a ready brief, or a new one Plug writes from the person's words, idea or file | `plug_list_creative_briefs`, `plug_get_creative_brief`, `plug_create_brief_drafts` (see the `plug` skill) |
+| What works and what does not for this goal: elements, approaches, winning and losing creatives | `plug_list_creative_elements`, `plug_list_creative_approaches`, `plug_list_winning_media` |
+| The brand: rules, claims, CTAs, colours, fonts, logo, people policy, and its own photos and videos | `plug_get_brand` |
+| Files ready to edit: a brief's image in any ratio, a video frame, a blank video page | `plug_export_brief_files` |
+| Where the result goes back: the brief, so the team finds it and Plug learns from it | `plug_update_creative_brief` |
+
+## The loop
+
+Every creative, static or video, from a brief or from the person's own material, follows these
+steps:
+
+1. **Goal.** What it is for (attention, site visits, leads, purchases), the format, and where
+   it runs. Ask only what the person has not said.
+2. **Read Plug.** A brief that fits first, in Plug's order and with its exact title. If none fits,
+   offer to have Plug write one. If the person brings their own material, still read what works
+   for that goal and the brand, and say in a few lines what to lean on and what to avoid,
+   leading with what Plug is most sure of. If the read is thin, say so.
+3. **Make it.** Take the most direct route to a finished file (see below). Show the plan and
+   what it costs before you start.
+4. **Check it.** Hold the result against the brand and against what works: text cut off or in
+   the platform's safe zones, colours, fonts and logo off brand, a claim or CTA the brand does
+   not allow, anything against the brief. Fix what you can and say what you fixed. You cannot
+   watch a video, so ask the person to watch it before launch. A version in another language
+   changes only the text and keeps the image, layout and brand; say a native speaker should
+   check it, and save it on the same brief as `Design (<language>): <link>`.
+5. **Launch it.** Put it in the right ad set, paused, with primary text, headline and
+   description written from the brief in the brand's words. Use Plug or a connected ads tool
+   if either can create ads. If not, hand over the file, the copy and the ad set name, ready to
+   upload. The person always presses go.
+6. **Close the loop.** Save the creative's link on its brief (`Design: <link>`, or
+   `Video: <link>`). Set no like or dislike unless the person asks.
+
+## Making
+
+No tool is the default and none is wrong for a job. Use what the person has and what gets a
+finished file fastest:
+
+- **Claude itself**, where it can run code: cut, trim, join, reframe and caption video, place a
+  logo and an end card, lay out text on an image. Ask for the person's own files or use the
+  brand's own photos and videos from Plug.
+- **The team's connected tools**: a design tool, a video editor, a clipping tool, an image or
+  video model. Ask which one they use when more than one could do the job.
+- **A video model** only for footage the brand does not have, and only within its people policy.
+
+Before first use of a tool, read its file in `references/` for its known traps. A tool with no
+file works the same way, through its own instructions.
 
 ## Rules
 
-1. **Start from Plug.** Use a Plug brief, or Plug's read of what works and what does not. An ad
-   the person brings is a start too (section 4). Never
-   present a brief as Plug's unless Plug returned it. If nothing fits, say so and look wider:
-   older briefs, another format, a longer window. If still nothing fits, offer an idea from the
-   brand kit, and say it is not from Plug's data.
-2. **The brand is a hard rule.** Call `plug_get_brand` before making anything, not before
-   choosing. Its colours, fonts, logo, claims, CTAs, people policy, and do's and don'ts apply
-   to everything you make and every edit, so check the result against them. Break one only
-   when the person asks. Text goes on in the design tool, never inside a generated video:
-   video models garble letters. The logo may appear in a generated video only on the product,
-   such as a phone screen or a car, and only from the brand kit's logo image.
-3. **Show briefs in Plug's order, as Plug names them.** One table of every brief that fits, in
-   the order Plug returns them: its exact title, the format, what it is for in plain words
-   (purchases, site visits, attention), the date and its Plug link. Leave out briefs whose
-   approach is retired. When the person asks for one
-   brief, take the first that fits the format and goal they named. Do not rename a brief, show
-   Plug's ranking, or invent why Plug suggests it.
-4. **Name what you make after the brief.** Every design and file takes the brief's exact title,
-   with the ratio added when there is more than one (`<brief title> | 9:16`). Clips made without
-   a brief keep the clipping tool's titles.
-5. **Speak in the person's words.** Never pass on Plug's internal labels, statuses or codes,
-   even reworded: review states, funnel codes, confidence labels. Raise a problem only when the person has to
-   act on it, once and plainly. Fix small faults yourself and say what you fixed. Plug's
-   briefs and files are ready to use; Plug's notes about its own checks are for Plug, not the
-   person.
-6. **Ask with buttons.** When the person has to choose (a brief, a goal, a yes to a cost), use
-   the app's question panel if it has one, with each option as a button.
-7. **Ask before spending, and spend once.** Say what a step costs and wait for a yes. Start a
-   paid run once and follow it by its id; if a call fails, look for the run before trying
-   again. Afterwards say what it cost, from the tool. Each tool's file says how it charges.
-8. **Fetch once.** Reuse what a tool already returned in this chat. Call it again only for
-   something new, or for fresh links once the old ones expire.
-9. **One step at a time.** End each step with a result the person can open or play in one
-   click, then wait for them to choose or say what to change.
-10. **Links expire.** Plug's files and generated videos last about an hour, so move each one on
-   in the same step it is made.
-11. **Plug's part ends at a finished creative.** Saving it is the person's step. Putting it
-    into Meta is offered only as section 5 says, and the person always presses go.
-
-## 1. A static from a brief
-
-1. `plug_list_creative_briefs` with `format: "Static"`: show the briefs as rule 3 says. The
-   person picks one.
-2. `plug_get_creative_brief`: what to make, the copy, the CTA, the finished images and the brief's
-   `comments`, what people on the team have said about it. Apply the comments without asking the
-   person to repeat them. If a comment goes against the brief or the brand, say so once and follow
-   the brand.
-3. Ask which ratios the person needs (4:5 for feeds, 9:16 for Stories, Reels and TikTok, 1:1),
-   unless they said. `plug_export_brief_files` with those `ratios`: say the cost the tool states
-   first. A ratio Plug is still making comes back as making: give the ones that are
-   ready, and ask for the rest again after the 3 to 5 minutes it takes.
-4. Open the PSDs in the design tool as one editable design named after the brief, one page per
-   ratio. The image and the headline arrive as separate layers.
-5. The person says what to change. Make the edits, save, then look at the result and point out
-   any clear mistake: text cut off or overlapping, a colour or font off brand, or anything that
-   goes against the brief and its composition. Show the design in the chat if you can, and give
-   its link with what changed, before and after.
-6. Save the design's link back on the brief, so the team finds it:
-   `plug_update_creative_brief` with `brief_id` and `comment` set to `Design: <the link>`. Say you
-   did. Do not set a like or dislike unless the person asks.
-7. **Another language.** If the person needs the static for a market in another language,
-   duplicate the design's pages and change only the text layers. Keep the image, the layout and
-   the brand. Say that a native speaker should check it before launch. Save its link on the same
-   brief as step 6 does, as `Design (<language>): <the link>`. It is a version of the same
-   creative, not a new brief.
-
-## 2. Short clips from a long video
-
-1. Ask for the video (a link, or a file they upload in the clipping tool) and what the clips
-   are for (attention, site visits or purchases), unless the person said. Confirm the brand may
-   use the video and everyone in it agreed.
-2. Read what works in videos for that goal: `plug_list_creative_elements` (winning and losing)
-   and `plug_list_creative_approaches` with `media_type: video`, in the comparison group for
-   that goal, on the metric it is judged by (attention: hook rate; visits: CTR; purchases: CPA
-   on the purchase event). When the brand runs both Meta and TikTok, read the platform the
-   clips are for (ask if the person has not said) by passing that platform's ad account. If
-   the read is thin, include paused creatives, but never leave the goal's group; if it is
-   still thin, say Plug has no clear read for this goal yet. Say in a few lines what works and
-   what does not, leading with what Plug is most sure of.
-3. Understand the video first: what kind it is, who speaks and about what, from what the
-   person says and the video's title. Write the clipping instruction as what works, put as
-   moments this video can contain, adding nothing Plug did not find. Aim it at the brand's
-   audience from its profile, and ask for nothing the kit's don'ts rule out, such as speaking
-   to an audience the brand does not sell to. Show the instruction, the
-   brand's template and the cost, and on a yes submit: portrait, 15 to 30 second clips,
-   captions on. Say when to check back: rendering takes about 10 minutes.
-4. When the clips are ready: the link to all clips in the clipping tool, then one table of
-   every clip, best fit first: title, length, a short verdict against what works and what the
-   clips are for, and the clip's own link to play it. Show previews only when the person asks.
-5. Export the clips the person picks in HD. End with the download links (they expire) and the
-   clipping tool's link, where the clips stay.
-
-## 3. A short video from a video brief
-
-1. `plug_list_creative_briefs` with `format: "Video"`: show the briefs as rule 3 says. The
-   person picks one.
-2. `plug_get_creative_brief`: the storyboard frames (timing, description, on-screen text and
-   audio) and the CTA in `brief`, the storyboard image in `images`, the numbered `frames` (title,
-   timing, on-screen text, audio), in `video_page` the blank page the video goes on in the design
-   tool, and the brief's `comments`. Apply the comments as in section 1.
-3. Write the video prompt from the storyboard without rewriting it:
-   - the storyboard image as the first reference image, and each frame in order with its
-     timing and description, word for word. Say that the image shows the frames side by side,
-     each one a full-screen shot in turn, and that the words on and under the frames are notes,
-     not part of the picture;
-   - the brand kit's logo image as the second reference image, shown only where a frame puts
-     it on the product;
-   - sound as the storyboard says: each spoken line in double quotes, and music and sound as
-     described. If the storyboard has no audio, the video has no sound;
-   - "no on-screen text, captions or letters": the frames' on-screen text is the person's to
-     add in the design tool.
-
-   Include people only if the brand's people policy allows them.
-4. Show the prompt and the cost, and on a yes generate it: 9:16, as long as the frame timings
-   add up to. If the run fails on the storyboard image (the model refuses real-looking people),
-   say so and run it once more without that image, from the frame text and the logo alone.
-5. Give the link where the person can play it, and ask them to look for letters, extra people
-   or a warped logo: you cannot watch it. Make a new take only after a yes, because it costs
-   again.
-6. Put the video into the design tool: one 9:16 design named after the brief, the video filling
-   the page and nothing else. Save, give the link, and list the storyboard's on-screen lines
-   with their timings for the person to add. Save the design's link back on the brief as section 1,
-   step 6 says.
-
-### One frame of a video brief
-
-When the person wants one beat of the storyboard in the design tool ("send frame 3 to Canva"), not
-the whole video:
-
-1. Name the frame from `frames` in `plug_get_creative_brief` (number, title, timing).
-2. `plug_export_brief_files` with `frames` set to that number: say the cost the tool states
-   first. Each frame comes
-   back as its own 9:16 PSD and PNG.
-3. Open the PSD in the design tool as one editable design named `<brief title> | frame <number>`, as
-   the design tool's file says, and give its link. Save that link on the brief as section 1, step 6
-   says.
-
-## 4. Our version of an ad the person saw
-
-When the person brings an ad they saw, often another brand's, as an image or video file, ask with
-buttons which way they want it:
-
-1. **Get a Plug brief:** ask Plug for a brief with the file attached, and pass on the person's
-   words as they said them. Plug shows the brief cards and the credits before anything is made.
-   Then make the creative from the brief, as section 1 or 3 says.
-2. **Make it now:** read the brand (rule 2), then what wins and loses in that format
-   (`plug_list_creative_elements`, `plug_list_winning_media`). Keep what makes the ad work: its
-   look and how its message is built. Everything else is ours: our product, our claims and our
-   brand. Use what wins and avoid what loses. Never take the other brand's text, logo, people or
-   product. Make a static in the design tool. Make a video with the video model and then the
-   design tool, as section 3 does, with frames you write from the ad.
-3. When it is finished, offer to add it to Plug as a new brief, if Plug's tools can take one, so
-   it can be approved and launched like any brief.
-
-## 5. Put a finished creative into Meta
-
-Only when a connected tool can create Meta ads, such as Meta's own MCP. Otherwise skip this
-section.
-
-1. Offer it once the creative is finished: "Want me to put this into Meta as a paused ad?"
-2. Find the ad set that fits the brief: the brief gives its funnel stage, audience and goal,
-   not an ad set, so use the Meta tool to find the active ad set that matches, unless the
-   person names one. Show the ad set by name and ask.
-3. Write the ad's primary text, headline and description from the brief, fitted to that ad set
-   and to Meta's limits, in the brand's words and claims (rule 2). Show them with the creative.
-4. On a yes, create the ad in that ad set, paused. A static goes up as an image, a video as a
-   video: check the format the tool used before saying it is done.
-5. Give the ad's link in Meta and say it is paused: the person reviews it there and presses go.
+1. **Start from Plug.** Never present a brief or a read as Plug's unless Plug returned it. If
+   nothing fits, say so and offer to have Plug write a brief.
+2. **The brand is a hard rule.** Call `plug_get_brand` before making anything. Its rules apply
+   to everything you make and every edit. Break one only when the person asks. Never put text
+   inside a generated image or video: add it afterwards. When the person brings another
+   brand's ad, keep its look and how its message is built, and never its text, logo, people
+   or product.
+3. **Apply the brief's comments** without asking the person to repeat them. If a comment goes
+   against the brand, say so once and follow the brand.
+4. **Name what you make after the brief**, with the ratio when there is more than one
+   (`<brief title> | 9:16`).
+5. **Speak in the person's words.** Never pass on Plug's internal labels, codes or statuses.
+   Raise a problem only when the person has to act on it, once and plainly.
+6. **Ask before spending, and spend once.** Say what a step costs and wait for a yes. Start a
+   paid run once and follow it by its id. Afterwards say what it cost.
+7. **One step at a time.** End each step with something the person can open or play in one
+   click, and wait for their choice. Ask with buttons when the app has them.
+8. **Links expire.** Plug's files and generated outputs last about an hour, so move each one on
+   in the same step.
+9. **Use the brand's material with permission.** For any video or photo of real people the
+   person brings, confirm the brand may use it.
 
 ## End with
 
-What was made, its link, what it cost, and what the person does next.
+What was made, where it runs (or is ready to run), its link, what it cost, and what the person
+does next.
