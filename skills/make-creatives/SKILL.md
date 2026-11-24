@@ -38,13 +38,17 @@ steps:
    not allow, anything against the brief. Fix what you can and say what you fixed. You cannot
    watch a video, so ask the person to watch it before launch. A version in another language
    changes only the text and keeps the image, layout and brand; say a native speaker should
-   check it, and save it on the same brief as `Design (<language>): <link>`.
+   check it, and add the translated file to the brief it came from using the same finished-file upload.
 5. **Launch it.** Put it in the right ad set, paused, with primary text, headline and
    description written from the brief in the brand's words. Use Plug or a connected ads tool
    if either can create ads. If not, hand over the file, the copy and the ad set name, ready to
    upload. The person always presses go.
-6. **Close the loop.** Save the creative's link on its brief (`Design: <link>`, or
-   `Video: <link>`). Set no like or dislike unless the person asks.
+6. **Close the loop.** Upload the finished files with `plug_create_brand_images(target="brief_final")`.
+   Pass the returned upload IDs to `plug_update_creative_brief(add_files=...)` for the original brief.
+   After an ads tool creates ads from the brief, call `plug_update_creative_brief(link_ads=...)` with
+   their platform and ad IDs in the same turn, including paused ads. If the person made their own
+   version of an ad they saw, offer to add it as a new brief with `plug_create_briefs_from_creatives`.
+   Leave feedback and approval to the person.
 
 ## Making
 
