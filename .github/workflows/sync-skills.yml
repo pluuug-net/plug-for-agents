@@ -27,10 +27,13 @@ jobs:
           mkdir -p "$tmp/make-creatives/references"
           curl -fsSL "$base/skills/make-creatives/SKILL.md" -o "$tmp/make-creatives/SKILL.md"
           head -3 "$tmp/make-creatives/SKILL.md" | grep -qx "name: make-creatives" || { echo "Not the make-creatives skill, stopping"; exit 1; }
-          # The reference files are the ones the skill names.
-          for ref in $(grep -oE 'references/[a-z0-9-]+\.md' "$tmp/make-creatives/SKILL.md" | sort -u); do
-            curl -fsSL "$base/skills/make-creatives/$ref" -o "$tmp/make-creatives/$ref"
-          done
+          # index.txt lists every file the skill has, SKILL.md included.
+          curl -fsSL "$base/skills/make-creatives/index.txt" -o "$tmp/index.txt"
+          grep -qx "SKILL.md" "$tmp/index.txt" || { echo "No make-creatives index, stopping"; exit 1; }
+          while read -r file; do
+            [ "$file" = "SKILL.md" ] && continue
+            curl -fsSL "$base/skills/make-creatives/$file" -o "$tmp/make-creatives/$file"
+          done < "$tmp/index.txt"
           cp "$tmp/plug.md" skills/plug/SKILL.md
           rm -rf skills/make-creatives
           cp -r "$tmp/make-creatives" skills/make-creatives
