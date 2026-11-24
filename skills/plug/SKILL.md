@@ -118,8 +118,8 @@ read-only except the brand tools (rule 2a). No tool ever changes an ad account.
 ## Recipe: make creatives from a brief
 
 Use the `make-creatives` skill, which comes with the Plug plugin
-(https://github.com/pluuug-net/plug-for-agents): statics from a brief, short clips from a long
-video and short videos from a video brief, finished in the team's own tools.
+(https://github.com/pluuug-net/plug-for-agents): any static or video, from a brief or the team's
+own material, made by Claude or the team's own tools and ending in a launched ad.
 
 ## Recipe: update the brand from the brand's own documentation
 
@@ -135,10 +135,22 @@ Plug's brand to match.
    key, **lists replace whole** (send the full list you want, not just the additions), `null`
    clears a field. A version conflict means somebody edited the brand in the Plug app while you
    were working: re-read and re-apply, do not retry blindly. Report the before/after it returns.
-4. Images are separate. `plug_create_brand_images` returns an upload ticket: run the `curl` if
-   you have a shell, otherwise give the user the `upload_page` link. Never paste file contents
+4. Files are separate. `plug_create_brand_images` returns an upload ticket: run the `curl` if
+   you have a shell, otherwise give the user the `upload_page` link. It takes images (PNG, JPG,
+   WebP, HEIC up to 25 MB) and videos (MP4, MOV, WebM up to 200 MB), the same as the Plug app; say
+   so before the user picks files. The upload answers which files were saved and, for each one that
+   was not, why and what to do instead: tell the user exactly that. Never paste file contents
    into the conversation, and never ask the user to describe an image so you can store the
    description instead of the file.
+5. Reference media has open categories and tags. Plug suggests both per upload; the user's own
+   win (`plug_update_brand_image`). A file filed as `opening card` or `closing card` can start or
+   end the brand's video storyboards, used as uploaded.
+6. Sub-brands, products and services (`kit.scopes` in `plug_update_brand`) carry their own colours,
+   logo rules, characters and do/don't. A creative for one follows them instead of the main
+   brand's. Tag the scope's logos, characters and photos with its name so they belong to it.
+   `plug_get_brand` lists names tagged on several items that could become one.
+
+Links in `plug_get_brand` (`url` on each image) import straight into design tools such as Canva.
 
 If the user hands you a brand book and wants Plug to read it, you have two routes. Reading the PDF
 yourself and sending the values through `plug_update_brand` is usually better: the change lands on

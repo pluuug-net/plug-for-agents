@@ -10,6 +10,14 @@ Tools: `opusclip_get_usage`, `opusclip_list_brand_templates`, `opusclip_submit_p
   again once the clips are ready, and say what the run used.
 - For a long video, offer to clip only part of it (a start and end time) to use fewer credits.
 
+## The clipping instruction
+
+Read what works in videos for the clips' goal first (attention: hook rate; visits: CTR;
+purchases: CPA on the purchase event), on the platform the clips are for. Then write the
+instruction as what works, put as moments this video can contain, adding nothing Plug did not
+find, aimed at the brand's audience and asking for nothing the brand kit's don'ts rule out.
+Show the instruction, the template and the cost before submitting.
+
 ## Submitting
 
 - A link: YouTube, Vimeo or another site OpusClip accepts; unlisted is fine. If OpusClip
