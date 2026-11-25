@@ -149,6 +149,10 @@ Plug's brand to match.
    logo rules, characters and do/don't. A creative for one follows them instead of the main
    brand's. Tag the scope's logos, characters and photos with its name so they belong to it.
    `plug_get_brand` lists names tagged on several items that could become one.
+7. Personas are the people the brand's ads speak to, in the brand's own words (`personas` in
+   `plug_update_brand`): a name, who they are and what the brand offers them. Edit one by its `id`
+   rather than removing and adding it again, so what carries it keeps it. Plug writes the list into
+   `profile.audience_description` unless someone wrote that text themselves; the answer says which.
 
 Links in `plug_get_brand` (`url` on each image) import straight into design tools such as Canva.
 
@@ -244,3 +248,12 @@ or video file instead.
    event, its largest comparison group, ranked best first against that group's typical ad.
    Say all of that (it is `population.description`), and list the other groups from
    `population.comparison.other_groups` when they hold winners too.
+
+### Finished creatives and ads
+
+- Upload finished files with `plug_create_brand_images(target="brief_final")`. Attach the returned
+  upload IDs with `plug_update_creative_brief(add_files=...)`. Keep translations on their source brief.
+- Use `plug_create_briefs_from_creatives` for creatives made outside a Plug brief. Group sizes of the
+  same creative together, show the person the groups and price, then ask before adding.
+- When an ads tool creates ads from a Plug brief, call `plug_update_creative_brief(link_ads=...)` in
+  the same turn with each platform and ad ID. Link ads even if paused.
