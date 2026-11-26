@@ -56,8 +56,8 @@ No tool is the default and none is wrong for a job. Use what the person has and 
 finished file fastest:
 
 - **Claude itself**, where it can run code: cut, trim, join, reframe and caption video, place a
-  logo and an end card, lay out text on an image. Ask for the person's own files or use the
-  brand's own photos and videos from Plug.
+  logo and an end card, lay out text on an image. Use the brand's own photos and videos from
+  Plug first, and ask the person only for what Plug lacks.
 - **The team's connected tools**: a design tool, a video editor, a clipping tool, an image or
   video model. Ask which one they use when more than one could do the job.
 - **A video model** only for footage the brand does not have, and only within its people policy.
