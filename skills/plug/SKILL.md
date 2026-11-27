@@ -15,13 +15,16 @@ metrics: what to do next (Moves), how the account did on each campaign's own goa
 what to make next (creative briefs), the brand rules production must follow (brand profile and kit), and
 the documents Plug has published for this customer (Pulse, competitor reports).
 Everything is scoped to the workspaces the user's Plug account can access, and everything is
-read-only except the brand tools (rule 2a). No tool ever changes an ad account.
+read-only except the brand tools (rule 2a). Only two tools reach an ad account, and each asks the user first:
+`plug_update_move_ads` pauses ads and `plug_create_ads` creates ads from finished briefs.
 
 ## Operating rules
 
 1. **Start with `plug_overview`** (or `plug_whoami`) to get the advertiser ids you may read.
-2. **No Plug tool changes an ad account.** Nothing here creates, pauses or edits a campaign, ad
-   set or ad. Never claim an action was taken on Meta through Plug.
+2. **Plug changes an ad account only through two tools, after the user agrees.** `plug_update_move_ads`
+   pauses a Pause Move's ads and `plug_create_ads` creates ads from finished briefs. The user sees exactly
+   what will happen first. Nothing else here creates, pauses or edits a campaign, ad set or ad. Never claim an
+   action was taken on Meta unless one of those two tools returned it.
 2a. **The brand tools write to Plug.** `plug_update_brand`, `plug_create_brand_images`,
    `plug_update_brand_image` and `plug_delete_brand_image` change the settings Plug's own creative
    work is generated from, and the client asks the user before each one runs. Before an update,
@@ -106,9 +109,12 @@ read-only except the brand tools (rule 2a). No tool ever changes an ad account.
 ## Recipe: daily account review
 
 1. `plug_list_moves(advertiser_id)`: the Moves to make, the same list and counts as the Plug
-   Moves page, by type and biggest spend first. `type` narrows to one of the page's types.
+   Moves page, by type and biggest spend first. `type` narrows to one of the page's types,
+   `persona` to the Moves about one of the brand's personas.
 2. `plug_get_move(recommendation_id)` for anything the user wants to act on: why, the evidence
-   behind it, and for a Refresh its creative briefs.
+   behind it, and for a Refresh its creative briefs. A Launch Move is an approved brief ready to go into
+   its ad set (its row's `launch` names the briefs and the ad set; `ready_to_launch` holds those with no ad
+   set on the page): launch it with `plug_get_ad_launch`, then `plug_create_ads` once the user agrees.
 3. Summarise by type, lead with the highest-impact item, and link each Move's
    `plug_app_url` so the user can review and act in Plug.
 4. If the user wants to execute changes (pause, budget), that happens in their own tools (Meta
@@ -255,5 +261,13 @@ or video file instead.
   upload IDs with `plug_update_creative_brief(add_files=...)`. Keep translations on their source brief.
 - Use `plug_create_briefs_from_creatives` for creatives made outside a Plug brief. Group sizes of the
   same creative together, show the person the groups and price, then ask before adding.
-- When an ads tool creates ads from a Plug brief, call `plug_update_creative_brief(link_ads=...)` in
+- To launch finished briefs, call `plug_get_ad_launch(advertiser_id, brief_ids, adset_ids)` to see each
+  ad set, what blocks a brief and the link, button and URL parameters Plug will copy from an ad already in the
+  ad set. A headline is required. When a brief has `copy_from_linked_ads`, offer that wording first, naming the
+  ad it came from and letting the person pick a version; for a Plug static, offer `suggested_headline`. Keep
+  each brief's copy to that brief. Otherwise write the primary text and headline in the brand's words. Show the
+  person the plan, then call `plug_create_ads`.
+  One ad is made for each brief in every ad set, with every size of its files, paused or live as the person
+  chose. Plug links each ad it makes to its brief itself.
+- When a different ads tool creates ads from a Plug brief, call `plug_update_creative_brief(link_ads=...)` in
   the same turn with each platform and ad ID. Link ads even if paused.

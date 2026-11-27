@@ -39,14 +39,18 @@ steps:
    watch a video, so ask the person to watch it before launch. A version in another language
    changes only the text and keeps the image, layout and brand; say a native speaker should
    check it, and add the translated file to the brief it came from using the same finished-file upload.
-5. **Launch it.** Put it in the right ad set, paused, with primary text, headline and
-   description written from the brief in the brand's words. Use Plug or a connected ads tool
-   if either can create ads. If not, hand over the file, the copy and the ad set name, ready to
-   upload. The person always presses go.
+5. **Launch it.** Put it in the right ad set with primary text, headline and description: the
+   wording of the ads already linked to the brief when `plug_get_ad_launch` offers it, else written
+   from the brief in the brand's words. Where Plug can launch (`plug_get_ad_launch` says so), use
+   `plug_create_ads`: it makes one ad per brief in each ad set the person picks, with every size of the
+   files, paused or live as they choose, and links each ad to its brief. Otherwise use a connected ads
+   tool, paused. If none can create ads, hand over the file, the copy and the ad set name, ready to
+   upload. The person always agrees before an ad is made.
 6. **Close the loop.** Upload the finished files with `plug_create_brand_images(target="brief_final")`.
    Pass the returned upload IDs to `plug_update_creative_brief(add_files=...)` for the original brief.
-   After an ads tool creates ads from the brief, call `plug_update_creative_brief(link_ads=...)` with
-   their platform and ad IDs in the same turn, including paused ads. If the person made their own
+   After a tool other than `plug_create_ads` creates ads from the brief, call
+   `plug_update_creative_brief(link_ads=...)` with their platform and ad IDs in the same turn, including
+   paused ads. Plug links the ads that `plug_create_ads` makes. If the person made their own
    version of an ad they saw, offer to add it as a new brief with `plug_create_briefs_from_creatives`.
    Leave feedback and approval to the person.
 
